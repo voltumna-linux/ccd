@@ -1,0 +1,9 @@
+MACHINE="ssg-6039p-e1cr16h"
+nice bitbake -k ccd-sde || return
+
+# MACHINE="ssg-6039p-e1cr16h"
+# nice bitbake -k ccd-sre || return
+
+# MACHINE="qemu-cascadelake-64"
+# SDKMACHINE="x86_64"
+# nice bitbake -k ccd-sdk -c populate_sdk || return
