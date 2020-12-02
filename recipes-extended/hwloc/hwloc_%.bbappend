@@ -1,0 +1,1 @@
+CKAGECONFIG_append = "numactl"
