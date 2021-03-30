@@ -24,6 +24,5 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-openembedded/meta-webserver \
   ##OEROOT##/../meta-96boards \
   ##OEROOT##/../../meta-elettra \
-  ##OEROOT##/../../meta-clang \
   ##OEROOT##/../../../ccd \
   "
