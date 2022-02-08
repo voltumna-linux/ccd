@@ -1,0 +1,5 @@
+MACHINE="ssg-6039p-e1cr16h-myricom"
+nice bitbake -k ccd-sre ccd-sde || return
+
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
