@@ -6,7 +6,7 @@ trap clean EXIT
 DEPLOYDIR=tmp/deploy
 
 declare -A IMAGES
-IMAGES[ssg-6039p-e1cr16h-myricom]="ccd-sde intranet os.tar net.tar
+IMAGES[ssg-6039p-e1cr16h-gph]="ccd-sde intranet os.tar net.tar
 		ccd-sre intranet os.tar net.tar
 		ccd-sdk intranet sh"
 

@@ -1,4 +1,4 @@
-MACHINE="ssg-6039p-e1cr16h-myricom"
+MACHINE="ssg-6039p-e1cr16h-gph"
 nice bitbake -k ccd-sre ccd-sde || return
 
 SDKMACHINE="x86_64"
