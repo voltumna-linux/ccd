@@ -42,6 +42,8 @@ do_install() {
 	install -m 0644 ${WORKDIR}/rnm-dpdk.service \
 		${WORKDIR}/rnm-dpdk-conf.service \
 		${D}${systemd_system_unitdir}
+	sed -i "s,@RNM_NETIF@,${@d.getVar('RNM_NETIF')},g" \
+		${D}${systemd_system_unitdir}/rnm-dpdk.service
 	
 	install -d ${D}${sysconfdir}/modules-load.d/
 	cat <<-__EOF__ >> ${D}${sysconfdir}/modules-load.d/vfio-pci.conf

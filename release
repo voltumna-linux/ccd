@@ -10,6 +10,10 @@ IMAGES[ssg-6039p-e1cr16h-gph]="ccd-sde intranet os.tar net.tar
 		ccd-sre intranet os.tar net.tar
 		ccd-sdk intranet sh"
 
+IMAGES[sys-5019p-wtr-myricom]="ccd-sde intranet os.tar net.tar
+		ccd-sre intranet os.tar net.tar
+		ccd-sdk intranet sh"
+
 for MACHINE in ${!IMAGES[@]}
 do
 	echo "${IMAGES[$MACHINE]}" | while read -r -a DATA

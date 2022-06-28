@@ -3,6 +3,9 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI_append_ssg-6039p-e1cr16h-myricom += " \
 	file://90-myri-mva.network \
 	"
+SRC_URI_append_sys-5019p-wtr-myricom += " \
+	file://90-myri-mva.network \
+	"
 
 FILES_${PN} += "${sysconfdir}/systemd/network"
 
