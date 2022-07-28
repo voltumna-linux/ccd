@@ -7,6 +7,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI = " \
 	file://esdk-installer_${PV}.${BUILDNUMBER}.zip \
 	file://fix-paths.patch \
+	file://Porting-from-5.3-to-5.4.patch \
 	file://myri-mva.conf \
 	file://90-myri-mva.rules \
 	"
@@ -15,6 +16,8 @@ COMPATIBLE_HOST = "x86_64.*-linux"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT  = "1"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PACKAGES = "kernel-module-myricom-mva libmva libmva-dev libgenicam libemergent libemergent-dev"
 
@@ -58,8 +61,8 @@ python do_unpack_append() {
 do_compile() {
 	chmod +x opt/EVT/myricom_mva/sbin/rebuild.sh \
 		opt/EVT/myricom_mva/src/driver/linux/mal_check_headers.sh
-	opt/EVT/myricom_mva/sbin/rebuild.sh --kernel "${STAGING_KERNEL_DIR}" \
-		"${S}/opt/EVT/myricom_mva" "${STAGING_KERNEL_BUILDDIR}"
+	opt/EVT/myricom_mva/sbin/rebuild.sh "${S}/opt/EVT/myricom_mva" \
+		"${STAGING_KERNEL_DIR}" "${STAGING_KERNEL_BUILDDIR}"
 }
 
 do_install () {

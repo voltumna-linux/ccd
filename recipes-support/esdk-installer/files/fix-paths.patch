@@ -21,8 +21,8 @@ diff -ruNp libemergent-2.27.4.20608.orig/opt/EVT/myricom_mva/sbin/rebuild.sh esd
    set -e
 -  $prefix/src/driver/linux/mal_check_headers.sh /lib/modules/`uname -r`/source \
 -  	/lib/modules/`uname -r`/build $prefix/src/driver/linux/mal_checks.h
-+  $prefix/src/driver/linux/mal_check_headers.sh $kver \
-+  	$2 $prefix/src/driver/linux/mal_checks.h
++  $prefix/src/driver/linux/mal_check_headers.sh $2 \
++  	$3 $prefix/src/driver/linux/mal_checks.h
    if test -d "$prefix/src/mva"; then
    	mva_srcs=`find $prefix/src/mva -maxdepth 1 -type f -name '*.c' | sed -e 's,.*/,,' -e 's/\.c$/.o/'`
    fi
@@ -32,8 +32,8 @@ diff -ruNp libemergent-2.27.4.20608.orig/opt/EVT/myricom_mva/sbin/rebuild.sh esd
  EOF
 -  make -C /lib/modules/`uname -r`/build M=$prefix/src/driver/linux/kbuild clean
 -  make -C /lib/modules/`uname -r`/build M=$prefix/src/driver/linux/kbuild
-+  make -C $2 M=$prefix/src/driver/linux/kbuild clean
-+  make -C $2 M=$prefix/src/driver/linux/kbuild
++  make -C $3 M=$prefix/src/driver/linux/kbuild clean
++  make -C $3 M=$prefix/src/driver/linux/kbuild
    cp $prefix/src/driver/linux/kbuild/myri_mva.ko $prefix/sbin/
    sed -e "s,MYRI_MODULE_DIR=/opt/mva,MYRI_MODULE_DIR=$prefix," < $prefix/sbin/myri_start_stop.orig > $prefix/sbin/myri_start_stop
    chmod +x $prefix/sbin/myri_start_stop
