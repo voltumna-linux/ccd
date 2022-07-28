@@ -1,13 +1,17 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI_ssg-6039p-e1cr16h += " \
+SRC_URI_d-6244 += " \
 	file://grub.cfg \
 	"
 
-SRC_URI_sys-5019p-wtr += " \
+SRC_URI_d-6346 += " \
 	file://grub.cfg \
 	"
 
-SRC_URI_up-whl01-gph += " \
+SRC_URI_s-4125r += " \
+	file://grub.cfg \
+	"
+
+SRC_URI_s-4305ue += " \
 	file://grub.cfg \
 	"

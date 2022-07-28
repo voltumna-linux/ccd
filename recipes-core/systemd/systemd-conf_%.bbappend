@@ -1,9 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI_append_ssg-6039p-e1cr16h-myricom += " \
-	file://90-myri-mva.network \
-	"
-SRC_URI_append_sys-5019p-wtr-myricom += " \
+SRC_URI_append_s-4125r-x11spw-tf-myricom += " \
 	file://90-myri-mva.network \
 	"
 
