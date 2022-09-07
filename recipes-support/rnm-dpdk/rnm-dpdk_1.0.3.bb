@@ -42,8 +42,9 @@ do_install() {
 	install -m 0644 ${WORKDIR}/rnm-dpdk.service \
 		${WORKDIR}/rnm-dpdk-conf.service \
 		${D}${systemd_system_unitdir}
-	sed -i "s,@RNM_NETIF@,${@d.getVar('RNM_NETIF')},g" \
-		${D}${systemd_system_unitdir}/rnm-dpdk.service
+
+	install -d ${D}${sysconfdir}
+	echo "RNM_NETIF=${@d.getVar('RNM_NETIF')}" > ${D}${sysconfdir}/rnm.conf
 	
 	install -d ${D}${sysconfdir}/modules-load.d/
 	cat <<-__EOF__ >> ${D}${sysconfdir}/modules-load.d/vfio-pci.conf
@@ -58,8 +59,6 @@ do_install() {
 	cat <<-__EOF__ >> ${D}${sysconfdir}/modprobe.d/vfio-iommu-type1.conf
 	options vfio_iommu_type1 allow_unsafe_interrupts=1
 	__EOF__
-
-	lnr ${D}/run/rnm-dpdk/rnm.conf ${D}${sysconfdir}/rnm.conf
 }
 
 inherit systemd
