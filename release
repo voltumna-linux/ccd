@@ -6,15 +6,10 @@ trap clean EXIT
 DEPLOYDIR=tmp/deploy
 
 declare -A IMAGES
-#IMAGES[XXXXXXXXXXXXXXXXXX]="ccd-sde intranet os.tar net.tar
-#		ccd-sre intranet os.tar net.tar
-#		ccd-sdk intranet sh"
-
-IMAGES[d-6244-x11dph-t-gph]="ccd-sde intranet os.tar net.tar"
-IMAGES[s-4125r-x11spw-tf-gph]="ccd-sde intranet os.tar net.tar"
-IMAGES[s-4125r-x11spw-tf-myricom]="ccd-sde intranet os.tar net.tar"
-IMAGES[d-6346-06v45n-gph]="ccd-sde intranet os.tar net.tar"
-IMAGES[s-4305ue-up-whl01-gph]="ccd-sde intranet os.tar net.tar"
+IMAGES[s-4125r-x11spw-tf-myricom]="ccd-sde intranet os.tar net.tar
+                                   ccd-sre intranet os.tar net.tar
+                                   ccd-sdk intranet sh
+				  "
 
 for MACHINE in ${!IMAGES[@]}
 do
