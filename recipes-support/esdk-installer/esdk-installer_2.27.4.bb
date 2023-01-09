@@ -3,7 +3,7 @@ HOMEPAGE = "https://emergentvisiontec.com/resources/?tab=ss"
 LICENSE = "CLOSED"
 
 BUILDNUMBER="20608"
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI = " \
 	file://esdk-installer_${PV}.${BUILDNUMBER}.zip \
 	file://fix-paths.patch \
@@ -21,25 +21,25 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PACKAGES = "kernel-module-myricom-mva libmva libmva-dev libgenicam libemergent libemergent-dev"
 
-DEPENDS += "virtual/kernel"
-FILES_kernel-module-myricom-mva = "${libdir}/modules"
+DEPENDS:append = "virtual/kernel"
+FILES:kernel-module-myricom-mva = "${libdir}/modules"
 
-INSANE_SKIP_libmva = "ldflags"
+INSANE_SKIP:libmva = "ldflags"
 SOLIBS_libmva = ".so"
 FILES_SOLIBSDEV_libmva = ""
-FILES_libmva = "${libdir}/libmva.so ${sysconfdir} ${sbindir} ${libdir}/udev"
-FILES_libmva-dev = "${includedir}/mva*.h"
-RDEPENDS_libmva += "gawk"
+FILES:libmva = "${libdir}/libmva.so ${sysconfdir} ${sbindir} ${libdir}/udev"
+FILES:libmva-dev = "${includedir}/mva*.h"
+RDEPENDS:libmva:append = "gawk"
 
-INSANE_SKIP_libgenicam = "ldflags"
+INSANE_SKIP:libgenicam = "ldflags"
 SOLIBS_libgenicam = ".so"
 FILES_SOLIBSDEV_libgenicam = ""
-FILES_libgenicam = "${libdir}/lib*gcc48*.so"
+FILES:libgenicam = "${libdir}/lib*gcc48*.so"
 
-INSANE_SKIP_libemergent = "dev-so"
-RDEPENDS_libemergent = "tiff libavformat zlib-intel libmva libgenicam"
-FILES_libemergent = "${libdir}/libEmergentCamera*.so* ${libdir}/libEmergentG*.so"
-FILES_libemergent-dev = "${includedir}/*mergent*.h \
+INSANE_SKIP:libemergent = "dev-so"
+RDEPENDS:libemergent = "tiff libavformat zlib-intel libmva libgenicam"
+FILES:libemergent = "${libdir}/libEmergentCamera*.so* ${libdir}/libEmergentG*.so"
+FILES:libemergent-dev = "${includedir}/*mergent*.h \
 		${includedir}/EvtParamAttribute.h \
 		${includedir}/GenTL.h \
 		${includedir}/gigevisiondeviceinfo.h \
@@ -54,7 +54,7 @@ do_extract_data() {
 
 do_unpack[depends] += "unzip-native:do_populate_sysroot"
 do_unpack[depends] += "xz-native:do_populate_sysroot"
-python do_unpack_append() {
+python do_unpack:append() {
     bb.build.exec_func('do_extract_data', d)
 }
 

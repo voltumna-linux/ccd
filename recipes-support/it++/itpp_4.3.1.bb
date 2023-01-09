@@ -1,6 +1,6 @@
 DESCRIPTION = "IT++ is a C++ library of mathematical, signal processing and communication classes and functions"
 HOMEPAGE = "http://itpp.sourceforge.net/"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 SRC_URI = "https://downloads.sourceforge.net/project/itpp/itpp/4.3.1/itpp-4.3.1.tar.gz"

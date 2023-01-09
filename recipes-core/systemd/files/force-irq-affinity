@@ -4,6 +4,6 @@ IRQAFFINITY=$(sed -n 's/.*irqaffinity=\([0-9,-]*\).*/\1/p' /proc/cmdline)
 if [ -n "$IRQAFFINITY" ]; then 
 	for FILE in $(ls /proc/irq/*/smp_affinity_list)
 	do
-		echo $IRQAFFINITY > $FILE
+		echo $IRQAFFINITY > $FILE 2>/dev/null
 	done
 fi

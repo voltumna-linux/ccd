@@ -1,10 +1,10 @@
 DESCRIPTION = "rnm-dpdk"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=02e84b7a61e84a931e51df5464bda493"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-DEPENDS += "librnmdpdk"
+DEPENDS:append = "librnmdpdk"
 
 SRC_URI = " \
         https://gitlab.elettra.eu/cs/drv/mods/rnm-dpdk/-/archive/${PV}/rnm-dpdk-${PV}.tar.bz2 \
@@ -13,9 +13,9 @@ SRC_URI = " \
 	file://rnm-dpdk-conf.sh \
         "
 
-SRC_URI[sha256sum] = "a6387d30006f408f5d4b9d79f52be3b5e552e501f155017e636cfdc2742b3f84"
+SRC_URI[sha256sum] = "502b20499d1a1abf12360d418c09195d5bd0d8eee639855a364b1b5bb87b128a"
 
-EXTRA_OEMAKE += " \
+EXTRA_OEMAKE:append = " \
 	RTE_SDK=${STAGING_DIR_TARGET}/usr/share/dpdk \
 	EXTRA_LDFLAGS="-L${STAGING_LIBDIR} --hash-style=gnu -fuse-ld=bfd" \
 	EXTRA_CFLAGS="${HOST_CC_ARCH} ${TOOLCHAIN_OPTIONS} -O3 -I${STAGING_INCDIR}" \
@@ -23,9 +23,9 @@ EXTRA_OEMAKE += " \
         PREFIX="${D}" \
         "
 
-FILES_${PN} += "${sysconfdir} ${systemd_unitdir}/system"
+FILES:${PN}:append = "${sysconfdir} ${systemd_unitdir}/system"
 
-SYSTEMD_SERVICE_${PN} = "rnm-dpdk.service rnm-dpdk-conf.service"
+SYSTEMD_SERVICE:${PN} = "rnm-dpdk.service rnm-dpdk-conf.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 
 do_compile() {
@@ -61,4 +61,4 @@ do_install() {
 	__EOF__
 }
 
-inherit systemd
+inherit systemd pkgconfig

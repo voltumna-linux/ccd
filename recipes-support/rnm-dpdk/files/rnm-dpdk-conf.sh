@@ -8,7 +8,7 @@ touch /run/rnm-dpdk/rnm.conf
 echo RNM_NETIF=$PCI_SLOT_NAME >> /run/rnm-dpdk/rnm.conf
 
 NAME=$(hostname)-rnm
-DNSREPLY=$(resolvectl query $NAME)
+DNSREPLY=$(resolvectl query $NAME 2>/dev/null)
 if [ "$?" -eq 0 ]; then
 	ADDRESS=$(echo "$DNSREPLY" | sed -n "s,$NAME: \([0-9.]*\) .*,\1,p")
 	LASTOCTECT=$(echo $ADDRESS | cut -d. -f4)

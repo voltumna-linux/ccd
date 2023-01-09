@@ -15,14 +15,14 @@ INHIBIT_PACKAGE_DEBUG_SPLIT  = "1"
 # PACKAGES = "libpylon libpylon-dev pylon-tools"
 PACKAGES = "libpylon libpylon-dev"
 
-# FILES_pylon-tools = "${bindir} ${datadir}"
-FILES_libpylon-dev = "${includedir} ${libdir}/libbxapi.so \
+# FILES:pylon-tools = "${bindir} ${datadir}"
+FILES:libpylon-dev = "${includedir} ${libdir}/libbxapi.so \
 		${libdir}/libgxapi.so ${libdir}/libpylonbase.so \
 		${libdir}/libpylonc.so ${libdir}/libpylon_TL_bcon.so \
 		${libdir}/libpylon_TL_camemu.so ${libdir}/libpylon_TL_gige.so \
 		${libdir}/libpylon_TL_gtc.so ${libdir}/libpylon_TL_usb.so \
 		${libdir}/libpylonutility.so ${libdir}/libuxapi.so"
-FILES_libpylon = "${libdir}/*${PV}.so ${libdir}/*v3_1*.so ${libdir}/pylon-libusb-1.0.so"
+FILES:libpylon = "${libdir}/*${PV}.so ${libdir}/*v3_1*.so ${libdir}/pylon-libusb-1.0.so"
 
 do_install () {
 #	install -d ${D}${bindir}

@@ -1,5 +1,5 @@
 DESCRIPTION = "Libbufferrt"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e9f7e8627ac433ed277eab45950118e0"
 
 SRC_URI = "https://gitlab.elettra.eu/cs/lib/libbufferrt/-/archive/${PV}/libbufferrt-${PV}.tar.bz2"

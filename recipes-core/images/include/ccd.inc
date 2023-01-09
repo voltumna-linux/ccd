@@ -1,3 +1,3 @@
-IMAGE_INSTALL_append += "lshw hwloc dmidecode starter librnmdpdk rnm-dpdk rnm-dpdk-watch \
-	openblas gsl itpp libfftw python3-pytango dpdk ffmpeg tiff libfit libbufferrt librnmshare \
-	libpylon iftop tcpdump users"
+IMAGE_INSTALL:append = " lshw hwloc dmidecode starter rnm-dpdk librnmshare \
+	librnmdpdk rnm-dpdk-watch openblas gsl itpp libfftw python3-pytango \
+	dpdk dpdk-tools libfit libbufferrt libpylon iftop tcpdump users rsync"

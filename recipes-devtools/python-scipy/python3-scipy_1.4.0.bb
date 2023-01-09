@@ -11,13 +11,13 @@ SRC_URI[sha256sum] = "31f7cfa93b01507c935c12b535e24812594002a02a56803d7cd063e992
 
 inherit pypi setuptools3
 
-DEPENDS += " \
+DEPENDS:append = " \
 	openblas \
 	lapack \
 	${PYTHON_PN}-pybind11-native \
 	${PYTHON_PN}-numpy-native \
 "
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN}:append = " \
 	${PYTHON_PN}-numpy \
 "
