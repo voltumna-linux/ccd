@@ -9,3 +9,5 @@ SRC_URI[md5sum] = "99c00a331276dae7b733067dd540e093"
 SRC_URI[sha256sum] = "15333863c837dba1a0b3e6e84b5a2394e44bb62e3b751521b94f9b65bbf0ad91"
 
 inherit cmake
+
+BBCLASSEXTEND = "native nativesdk"
