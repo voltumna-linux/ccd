@@ -8,5 +8,7 @@ SRC_URI = "https://gitlab.elettra.eu/cs/lib/librnmshare/-/archive/${PV}/librnmsh
 SRC_URI[sha256sum] = "2aff9b05de717fecabb12f7e579cb0e987fa0a03aac09aa942d1141d4d3b687a"
 
 do_install() {
-	oe_runmake PREFIX=${D}/usr install
+	oe_runmake PREFIX=${D}${prefix} install
 }
+
+BBCLASSEXTEND = "native nativesdk"

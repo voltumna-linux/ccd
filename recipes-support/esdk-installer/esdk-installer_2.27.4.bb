@@ -36,15 +36,17 @@ SOLIBS_libgenicam = ".so"
 FILES_SOLIBSDEV_libgenicam = ""
 FILES_libgenicam = "${libdir}/lib*gcc48*.so"
 
-INSANE_SKIP_libemergent = "dev-so"
-RDEPENDS_libemergent = "tiff libavformat zlib-intel libmva libgenicam"
+INSANE_SKIP_libemergent = "dev-so file-rdeps"
+RDEPENDS_libemergent = "tiff libavformat zlib libmva libgenicam"
 FILES_libemergent = "${libdir}/libEmergentCamera*.so* ${libdir}/libEmergentG*.so"
+RDEPENDS_libemergent-dev = "libemergent"
 FILES_libemergent-dev = "${includedir}/*mergent*.h \
 		${includedir}/EvtParamAttribute.h \
 		${includedir}/GenTL.h \
 		${includedir}/gigevisiondeviceinfo.h \
 		${includedir}/networkinterfacecontroller.h \
 		${includedir}/platformsymbols.h"
+
 
 do_extract_data() {
 	tar zxf emergent_camera_${PV}.${BUILDNUMBER}-ubuntu18.04.4.x64.tgz 
@@ -97,3 +99,5 @@ do_install () {
 		opt/EVT/eSDK/include/platformsymbols.h \
 		${D}${includedir}
 }
+
+BBCLASSEXTEND = "native nativesdk"

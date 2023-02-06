@@ -37,3 +37,5 @@ do_install () {
 	install -d ${D}${libdir}
 	cp -dR lib/*.so ${D}${libdir}
 }
+
+BBCLASSEXTEND = "native nativesdk"
