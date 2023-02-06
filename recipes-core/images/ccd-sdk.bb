@@ -5,9 +5,7 @@ require include/ccd.inc
 IMAGE_INSTALL:append = " librnmshare-dev librnmdpdk-dev \
 	openblas-dev gsl-dev itpp-dev fftw-dev libfit-dev \
 	libbufferrt-dev libpylon-dev cpptango-dev"
-IMAGE_INSTALL:append:s-4125r-x11spw-tf-myricom = " libemergent-dev"
 
-# nativesdk-libemergent-dev
 TOOLCHAIN_HOST_TASK:append = " nativesdk-pogo nativesdk-jive \
 	nativesdk-python3-pytango nativesdk-openblas-dev \
 	nativesdk-librnmshare-dev nativesdk-librnmdpdk-dev \
