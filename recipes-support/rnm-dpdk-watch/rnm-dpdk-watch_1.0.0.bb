@@ -10,3 +10,5 @@ SRC_URI[sha256sum] = "8cd29aa086d2582d6695dc35423d6fc36299293b7e3d683bfe168d94c6
 do_install() {
 	oe_runmake PREFIX=${D}/usr install
 }
+
+PARALLEL_MAKE = ""
