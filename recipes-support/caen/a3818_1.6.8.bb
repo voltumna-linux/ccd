@@ -15,13 +15,15 @@ S = "${WORKDIR}/A3818Drv-${PV}"
 MODULES_MODULE_SYMVERS_LOCATION = "src"
 EXTRA_OEMAKE += "-C ${MODULES_MODULE_SYMVERS_LOCATION}"
 
+# KERNEL_MODULE_AUTOLOAD += " ${PN}"
+RPROVIDES:${PN} += "kernel-module-${PN}"
+
 do_configure:append() {
 	install -m 0644 ${S}/include/a3818.h ${S}/${MODULES_MODULE_SYMVERS_LOCATION}
 	install -m 0644 ${WORKDIR}/Makefile ${S}/${MODULES_MODULE_SYMVERS_LOCATION}
 }
 
 FILES:${PN} += "/etc/udev/rules.d"
-
 do_install:append() {
 	install -d ${D}${includedir}
 	install -m 0644 ${S}/${MODULES_MODULE_SYMVERS_LOCATION}/a3818.h ${D}${includedir}
@@ -30,7 +32,3 @@ do_install:append() {
  	install -m 0644 ${WORKDIR}/90-a3818.rules \
  		${D}${sysconfdir}/udev/rules.d/
 }
-
-KERNEL_MODULE_AUTOLOAD += " ${PN}"
-
-RPROVIDES:${PN} += "kernel-module-${PN}"
