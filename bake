@@ -1,5 +1,5 @@
 MACHINE="d-6244-x11dph-t-gph"
-ice bitbake -k ccd-sre ccd-sde || return
+nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 

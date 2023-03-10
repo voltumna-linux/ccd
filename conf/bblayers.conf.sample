@@ -19,7 +19,6 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-ti/meta-ti-bsp \
   ##OEROOT##/../meta-ti/meta-ti-extras \
   ##OEROOT##/../meta-clang \
-  ##OEROOT##/../meta-cross-toolchain \
   ##OEROOT##/../meta-openembedded/meta-oe \
   ##OEROOT##/../meta-openembedded/meta-filesystems \
   ##OEROOT##/../meta-openembedded/meta-python \
@@ -27,5 +26,5 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-openembedded/meta-webserver \
   ##OEROOT##/../meta-96boards \
   ##OEROOT##/../../meta-elettra \
-  ##OEROOT##/../../../ccd \
+  ##OEROOT##/../.. \
   "
