@@ -9,4 +9,4 @@ do_install() {
 	oe_runmake PREFIX=${D}${prefix} install
 }
 
-BBCLASSEXTEND = "native nativesdk"
+BBCLASSEXTEND = "nativesdk"

@@ -20,4 +20,4 @@ do_install() {
 	ln -sfrn ${D}${libdir}/libCAENVME.so.v${PV} ${D}${libdir}/libCAENVME.so
 }
 
-BBCLASSEXTEND = "native nativesdk"
+BBCLASSEXTEND = "nativesdk"
