@@ -267,3 +267,7 @@ PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
 CONF_VERSION = "2"
 
 DISTRO_NAME="CCD"
+
+# Necessary to add lapack
+FORTRAN:forcevariable = ",fortran"
+RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
