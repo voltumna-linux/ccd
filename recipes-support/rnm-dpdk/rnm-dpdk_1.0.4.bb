@@ -3,7 +3,7 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=02e84b7a61e84a931e51df5464bda493"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
-
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS:append = "librnmdpdk"
 
 SRC_URI = " \
@@ -45,6 +45,7 @@ do_install() {
 
 	install -d ${D}${sysconfdir}
 	echo "RNM_NETIF=${@d.getVar('RNM_NETIF')}" > ${D}${sysconfdir}/rnm.conf
+	echo "RNM_LCORE=${@d.getVar('RNM_LCORE')}" >> ${D}${sysconfdir}/rnm.conf
 	
 	install -d ${D}${sysconfdir}/modules-load.d/
 	cat <<-__EOF__ >> ${D}${sysconfdir}/modules-load.d/vfio-pci.conf

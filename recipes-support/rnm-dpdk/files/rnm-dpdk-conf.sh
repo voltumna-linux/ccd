@@ -14,5 +14,4 @@ if [ "$?" -eq 0 ]; then
 	LASTOCTECT=$(echo $ADDRESS | cut -d. -f4)
 	echo CLIENTID="-- --client-id $LASTOCTECT" >> /run/rnm-dpdk/rnm.conf
 fi
-
-
+echo RNM_LCORE=$RNM_LCORE >> /run/rnm-dpdk/rnm.conf

@@ -6,7 +6,7 @@ After=rnm-dpdk-conf.service
 [Service]
 EnvironmentFile=/run/rnm-dpdk/rnm.conf
 ExecStartPre=/bin/sh -c '/usr/bin/dpdk-devbind.py --bind=vfio-pci $(basename -a /sys/bus/pci/devices/${RNM_NETIF}/iommu_group/devices/${RNM_NETIF::-1}*)'
-ExecStart=/usr/sbin/rnm-dpdk -l 1 -n 1 -m 128 --file-prefix rnm -a $RNM_NETIF $CLIENTID
+ExecStart=/usr/sbin/rnm-dpdk -l $RNM_LCORE -n 1 -m 128 --file-prefix rnm -a $RNM_NETIF $CLIENTID
 
 [Install]
 WantedBy=multi-user.target
