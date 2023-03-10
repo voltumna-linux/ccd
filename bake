@@ -1,5 +1,5 @@
 MACHINE="d-6244-x11dph-t-gph"
-nice bitbake -k ccd-sre ccd-sde || return
+ice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
@@ -13,5 +13,12 @@ nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
-# MACHINE="s-4305ue-up-whl01-gph"
-# nice bitbake -k ccd-sde || return
+MACHINE="d-e5462-x7dwu-gph"
+nice bitbake -k ccd-sre ccd-sde || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="d-e52643v4-x10dru-iplus-gph"
+nice bitbake -k ccd-sre ccd-sde || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return

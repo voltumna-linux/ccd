@@ -15,6 +15,12 @@ IMAGES[s-4125r-x11spw-tf-gph]="ccd-sde intranet os.tar net.tar
 IMAGES[d-6346-06v45n-gph]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
+IMAGES[d-e5462-x7dwu-gph]="ccd-sde intranet os.tar net.tar
+			   ccd-sre intranet os.tar net.tar
+                           ccd-sdk intranet sh"
+IMAGES[d-e52643v4-x10dru-iplus-gph]="ccd-sde intranet os.tar net.tar
+			   ccd-sre intranet os.tar net.tar
+                           ccd-sdk intranet sh"
 
 for MACHINE in ${!IMAGES[@]}
 do
