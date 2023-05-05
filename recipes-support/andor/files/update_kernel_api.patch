@@ -1,0 +1,33 @@
+diff -ruNp andor.orig/src/driver/fault.c andor/src/driver/fault.c
+--- andor.orig/src/driver/fault.c	2017-04-11 12:46:52.000000000 +0000
++++ andor/src/driver/fault.c	2023-04-11 14:15:16.075546389 +0000
+@@ -1,4 +1,4 @@
+-int andor_vma_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
++vm_fault_t andor_vma_fault(struct vm_fault *vmf)
+ {
+   int iCardNo;
+   unsigned long* ptr = NULL;
+@@ -6,9 +6,9 @@ int andor_vma_fault(struct vm_area_struc
+   pgoff_t offset;
+   
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(3,19,0)
+-  iCardNo = MINOR(vma->vm_file->f_dentry->d_inode->i_rdev);
++  iCardNo = MINOR(vmf->vma->vm_file->f_dentry->d_inode->i_rdev);
+ #else
+-  iCardNo = MINOR(file_inode(vma->vm_file)->i_rdev);
++  iCardNo = MINOR(file_inode(vmf->vma->vm_file)->i_rdev);
+ #endif
+ 
+   offset = vmf->pgoff;
+diff -ruNp andor.orig/src/driver/vmops.h andor/src/driver/vmops.h
+--- andor.orig/src/driver/vmops.h	2017-04-11 12:46:52.000000000 +0000
++++ andor/src/driver/vmops.h	2023-04-11 14:14:49.699745637 +0000
+@@ -26,7 +26,7 @@ void andor_vma_open(struct vm_area_struc
+ void andor_vma_close(struct vm_area_struct *vma);
+ 
+ #if LINUX_VERSION_CODE > KERNEL_VERSION(2,6,24)
+-int andor_vma_fault(struct vm_area_struct *vma, struct vm_fault *vmf);
++vm_fault_t andor_vma_fault(struct vm_fault *vmf);
+ #endif
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,26)
+ 
