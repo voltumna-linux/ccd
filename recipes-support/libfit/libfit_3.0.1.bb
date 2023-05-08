@@ -11,4 +11,6 @@ do_install() {
 	oe_runmake PREFIX=${D}${prefix} install
 }
 
+PARALLEL_MAKE = ""
+
 BBCLASSEXTEND = "nativesdk"
