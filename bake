@@ -22,3 +22,13 @@ MACHINE="d-e52643v4-x10dru-iplus-gph"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="kvm-ivybridge"
+nice bitbake -k ccd-sre || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="kvm-naples"
+nice bitbake -k ccd-sre || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return

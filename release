@@ -21,6 +21,10 @@ IMAGES[d-e5462-x7dwu-gph]="ccd-sde intranet os.tar net.tar
 IMAGES[d-e52643v4-x10dru-iplus-gph]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
+IMAGES[kvm-naples]="ccd-sre intranet wic
+                           ccd-sdk intranet sh"
+IMAGES[kvm-ivybridge]="ccd-sre intranet wic
+                           ccd-sdk intranet sh"
 
 for MACHINE in ${!IMAGES[@]}
 do
