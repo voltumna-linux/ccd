@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 SRC_URI = " \
 	file://andor-${PV}.tar.gz \
 	"
-SRC_URI[sha256sum] = "171bf4875c793a7d0ed354890698eb4c7491a5de3441a8beff61525284956278"
+SRC_URI[sha256sum] = "08b9b6af9dd3d9bb7d62f760e00fa79f6fa832114dcc28c77403e6b9f895445f"
 
 COMPATIBLE_HOST = "x86_64.*-linux"
 S = "${WORKDIR}/andor"
