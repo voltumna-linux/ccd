@@ -3,6 +3,8 @@ HOMEPAGE = "http://itpp.sourceforge.net/"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
+DEPENDS = "openblas lapack fftw"
+
 SRC_URI = "https://downloads.sourceforge.net/project/itpp/itpp/4.3.1/itpp-4.3.1.tar.gz"
 
 SRC_URI[md5sum] = "99c00a331276dae7b733067dd540e093"
