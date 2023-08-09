@@ -2,8 +2,18 @@ include andor.inc
 
 DEPENDS = "libusb-compat"
 
+SRC_URI:append = " \
+	file://90-andor.rules  \
+	file://90-shamrock.rules \
+	"
+
 PACKAGES += " ${BPN}-examples"
 FILES:${PN}-examples += "${datadir}/andor/examples"
+
+FILES:${PN} += " \
+	${libdir}/firmware/andor \
+	${sysconfdir}/udev/rules.d \
+	"
 
 do_install () {
  	install -d ${D}${includedir} ${D}${libdir}
@@ -22,6 +32,12 @@ do_install () {
 	
 	install -d ${D}${datadir}/andor/examples
 	cp -r ${S}/examples/console/* ${D}${datadir}/andor/examples
+ 
+	install -d ${D}${libdir}/firmware/andor
+	cp -r ${S}/etc/* ${D}${libdir}/firmware/andor/
+ 
+	install -d ${D}${sysconfdir}/udev/rules.d/
+	install -m 0644 ${WORKDIR}/*.rules ${D}${sysconfdir}/udev/rules.d/
 }
 
 BBCLASSEXTEND = "nativesdk"
