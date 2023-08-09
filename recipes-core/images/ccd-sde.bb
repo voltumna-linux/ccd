@@ -1,13 +1,15 @@
 require recipes-core/images/voltumna-sde.bb
 require include/ccd.inc
 
-IMAGE_INSTALL:append = " librnmshare-dev librnmdpdk-dev \
-	openblas-dev gsl-dev itpp-dev fftw-dev libfit-dev \
-	libbufferrt-dev libpylon-dev cpptango-dev a3818-dev \
-	caenvmelib-dev lapack-dev libandor-dev intel-cmt-cat"
-IMAGE_INSTALL:remove:kvm = "librnmshare-dev librnmdpdk-dev \
-	libbufferrt-dev libpylon-dev a3818-dev \
-	caenvmelib-dev libandor-dev intel-cmt-cat"
+IMAGE_INSTALL:append = " openblas-dev gsl-dev itpp-dev fftw-dev \
+	libfit-dev libpylon-dev cpptango-dev a3818-dev \
+	caenvmelib-dev lapack-dev libandor-dev libpdv-dev \
+	libhimage-dev libtucam-dev"
+IMAGE_INSTALL:append:rnm = " librnmshare-dev librnmdpdk-dev \
+	libbufferrt-dev" 
+IMAGE_INSTALL:remove:kvm = "libpylon-dev caenvmelib-dev \
+	a3818-dev libandor-dev libpdv-dev libhimage-dev \
+	libtucam-dev"
 
 append_to_osrelease() {
 	cat <<-__EOF__ >> ${IMAGE_ROOTFS}/etc/os-release
