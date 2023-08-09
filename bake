@@ -13,12 +13,27 @@ nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
-MACHINE="d-e5462-x7dwu-gph"
+MACHINE="d-e5462-x7dwu-rnm"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
-MACHINE="d-e52643v4-x10dru-iplus-gph"
+MACHINE="d-e5472-x7dwu-gph"
+nice bitbake -k ccd-sre ccd-sde || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="d-e52637v3-x10drw-i-rnm"
+nice bitbake -k ccd-sre ccd-sde || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="d-e52637v4-x10dru-iplus-gph"
+nice bitbake -k ccd-sre ccd-sde || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="d-e52643v4-x10dru-iplus-rnm"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
