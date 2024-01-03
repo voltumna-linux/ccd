@@ -5,7 +5,7 @@ SRC_URI:append = " \
 	file://force-irq-affinity.service \
 	"
 
-FILES:${PN}:append = "${base_sbindir}/force-irq-affinity"
+FILES:${PN}:append = " ${base_sbindir}/force-irq-affinity"
 
 do_install:append() {
 	# Add script to enforce irq affinity
