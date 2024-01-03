@@ -4,12 +4,12 @@ require include/ccd.inc
 
 IMAGE_INSTALL:append = " openblas-dev gsl-dev itpp-dev fftw-dev \
 	libfit-dev libpylon-dev cpptango-dev a3818-dev \
-	caenvmelib-dev lapack-dev libandor-dev libpdv-dev \
+	caenvmelib-dev lapack-dev libandor2-dev libpdv-dev \
 	libhimage-dev libtucam-dev"
 IMAGE_INSTALL:append:rnm = " librnmshare-dev librnmdpdk-dev \
 	libbufferrt-dev" 
 IMAGE_INSTALL:remove:kvm = "libpylon-dev caenvmelib-dev \
-	a3818-dev libandor-dev libpdv-dev libhimage-dev \
+	a3818-dev libandor2-dev libpdv-dev libhimage-dev \
 	libtucam-dev"
 
 TOOLCHAIN_HOST_TASK:append = " nativesdk-pogo nativesdk-jive \
@@ -19,7 +19,7 @@ TOOLCHAIN_HOST_TASK:append = " nativesdk-pogo nativesdk-jive \
 	nativesdk-libfit-dev nativesdk-libbufferrt-dev \
 	nativesdk-libpylon-dev nativesdk-cpptango-dev \
 	nativesdk-a3818-dev nativesdk-caenvmelib-dev \
-	nativesdk-lapack-dev nativesdk-libandor-dev \
+	nativesdk-lapack-dev nativesdk-libandor2-dev \
 	nativesdk-libpdv-dev nativesdk-libhimage-dev \
 	nativesdk-libtucam-dev"
 

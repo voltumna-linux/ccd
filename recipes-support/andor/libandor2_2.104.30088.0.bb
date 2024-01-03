@@ -1,4 +1,4 @@
-include andor.inc
+include andor2.inc
 
 DEPENDS = "libusb-compat"
 
@@ -8,7 +8,7 @@ SRC_URI:append = " \
 	"
 
 PACKAGES += " ${BPN}-examples"
-FILES:${PN}-examples += "${datadir}/andor/examples"
+FILES:${PN}-examples += "${datadir}/andor2/examples"
 
 FILES:${PN} += " \
 	${libdir}/firmware/andor \
@@ -27,11 +27,11 @@ do_install () {
 	 	ln -sfrn ${D}${libdir}/$lib ${D}${libdir}/$n.so.2
 	done
  	
-	install -d ${D}${docdir}/andor
-	cp -r ${S}/doc/* ${D}${docdir}/andor/
+	install -d ${D}${docdir}/andor2
+	cp -r ${S}/doc/* ${D}${docdir}/andor2/
 	
-	install -d ${D}${datadir}/andor/examples
-	cp -r ${S}/examples/console/* ${D}${datadir}/andor/examples
+	install -d ${D}${datadir}/andor2/examples
+	cp -r ${S}/examples/console/* ${D}${datadir}/andor2/examples
  
 	install -d ${D}${libdir}/firmware/andor
 	cp -r ${S}/etc/* ${D}${libdir}/firmware/andor/

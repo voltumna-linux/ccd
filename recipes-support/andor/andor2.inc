@@ -1,4 +1,4 @@
-DESCRIPTION = "Andor SDK for CCD cameras"
+DESCRIPTION = "Andor 2.x for CCD cameras"
 HOMEPAGE = "https://andor.oxinst.com/downloads/"
 LICENSE = "CLOSED"
 

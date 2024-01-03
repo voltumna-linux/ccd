@@ -1,4 +1,4 @@
-include andor.inc
+include andor2.inc
 
 inherit module
 
