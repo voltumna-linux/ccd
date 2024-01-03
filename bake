@@ -1,4 +1,4 @@
-MACHINE="d-6244-x11dph-t-gph"
+MACHINE="d-6244-x11dph-t-rnm"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
@@ -8,7 +8,7 @@ nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
-MACHINE="d-6346-06v45n-gph"
+MACHINE="d-6346-06v45n-rnm"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
@@ -33,7 +33,12 @@ nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
-MACHINE="d-e52643v4-x10dru-iplus-rnm"
+MACHINE="s-d1718t-x12sdv-4c-sp6f-rnm"
+nice bitbake -k ccd-sre ccd-sde || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="s-x6425e-a3sev-4c-ln4-rnm"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
