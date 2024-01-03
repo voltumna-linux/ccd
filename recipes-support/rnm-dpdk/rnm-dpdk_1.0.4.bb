@@ -32,6 +32,7 @@ do_compile() {
 	oe_runmake V=1 T=rnm-dpdk
 }
 
+do_install[vardeps] += "RNM_NETIF RNM_LCORE"
 do_install() {
 	oe_runmake install V=1 T=rnm-dpdk
 
@@ -46,6 +47,7 @@ do_install() {
 	install -d ${D}${sysconfdir}
 	echo "RNM_NETIF=${@d.getVar('RNM_NETIF')}" > ${D}${sysconfdir}/rnm.conf
 	echo "RNM_LCORE=${@d.getVar('RNM_LCORE')}" >> ${D}${sysconfdir}/rnm.conf
+	echo "RNM_DEVARGS=" >> ${D}${sysconfdir}/rnm.conf
 	
 	install -d ${D}${sysconfdir}/modules-load.d/
 	cat <<-__EOF__ >> ${D}${sysconfdir}/modules-load.d/vfio-pci.conf

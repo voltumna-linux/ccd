@@ -5,7 +5,7 @@ touch /run/rnm-dpdk/rnm.conf
 
 . /etc/rnm.conf
 . /sys/class/net/$RNM_NETIF/device/uevent
-echo RNM_NETIF=$PCI_SLOT_NAME >> /run/rnm-dpdk/rnm.conf
+echo RNM_NETIF=$PCI_SLOT_NAME > /run/rnm-dpdk/rnm.conf
 
 NAME=$(hostname)-rnm
 DNSREPLY=$(resolvectl query $NAME 2>/dev/null)
@@ -15,3 +15,6 @@ if [ "$?" -eq 0 ]; then
 	echo CLIENTID="-- --client-id $LASTOCTECT" >> /run/rnm-dpdk/rnm.conf
 fi
 echo RNM_LCORE=$RNM_LCORE >> /run/rnm-dpdk/rnm.conf
+if [ -n "$RNM_DEVARGS" ]; then
+	echo RNM_DEVARGS=,$RNM_DEVARGS >> /run/rnm-dpdk/rnm.conf
+fi
