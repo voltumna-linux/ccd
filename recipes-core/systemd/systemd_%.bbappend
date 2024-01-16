@@ -19,7 +19,4 @@ do_install:append() {
 		${D}${systemd_unitdir}/system
 	ln -sf ${systemd_unitdir}/system/force-irq-affinity.service \
 		${D}${sysconfdir}/systemd/system/multi-user.target.wants/force-irq-affinity.service
-
-	# Make log persistent	
-	mkdir -p ${D}/var/log/journal
 }
