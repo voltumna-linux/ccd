@@ -17,8 +17,6 @@ INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT  = "1"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 PACKAGES = "kernel-module-myricom-mva libmva libmva-dev libgenicam libemergent libemergent-dev"
 
 DEPENDS += "virtual/kernel"
