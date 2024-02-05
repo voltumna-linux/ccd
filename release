@@ -9,24 +9,24 @@ declare -A IMAGES
 IMAGES[d-6244-x11dph-t-rnm]="ccd-sde intranet os.tar net.tar
 			     ccd-sre intranet os.tar net.tar
                              ccd-sdk intranet sh"
-#IMAGES[s-4125r-x11spw-tf-gph]="ccd-sde intranet os.tar net.tar
-#			       ccd-sre intranet os.tar net.tar
-#			       ccd-sdk intranet sh"
+IMAGES[s-4125r-x11spw-tf-rnm]="ccd-sde intranet os.tar net.tar
+			       ccd-sre intranet os.tar net.tar
+			       ccd-sdk intranet sh"
 IMAGES[d-6346-06v45n-rnm]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
 IMAGES[d-e5462-x7dwu-rnm]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
-#IMAGES[d-e5472-x7dwu-gph]="ccd-sde intranet os.tar net.tar
-#			   ccd-sre intranet os.tar net.tar
-#                           ccd-sdk intranet sh"
+IMAGES[d-e5472-x7dwu-rnm]="ccd-sde intranet os.tar net.tar
+			   ccd-sre intranet os.tar net.tar
+                           ccd-sdk intranet sh"
 IMAGES[d-e52637v3-x10drw-i-rnm]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
-#IMAGES[d-e52637v4-x10dru-iplus-gph]="ccd-sde intranet os.tar net.tar
-#			   ccd-sre intranet os.tar net.tar
-#                           ccd-sdk intranet sh"
+IMAGES[d-e52637v4-x10dru-iplus-rnm]="ccd-sde intranet os.tar net.tar
+			   ccd-sre intranet os.tar net.tar
+                           ccd-sdk intranet sh"
 IMAGES[d-e52643v4-x10dru-iplus-rnm]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
