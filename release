@@ -30,6 +30,12 @@ IMAGES[d-e52637v4-x10dru-iplus-rnm]="ccd-sde intranet os.tar net.tar
 IMAGES[d-e52643v4-x10dru-iplus-rnm]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
+IMAGES[s-d1718t-x12sdv-4c-sp6f-rnm]="ccd-sde intranet os.tar net.tar
+			   ccd-sre intranet os.tar net.tar
+                           ccd-sdk intranet sh"
+IMAGES[s-x6425e-a3sev-4c-ln4-rnm]="ccd-sde intranet os.tar net.tar
+			   ccd-sre intranet os.tar net.tar
+                           ccd-sdk intranet sh"
 #IMAGES[kvm-naples]="ccd-sre intranet wic
 #                           ccd-sdk intranet sh"
 #IMAGES[kvm-ivybridge]="ccd-sre intranet wic
