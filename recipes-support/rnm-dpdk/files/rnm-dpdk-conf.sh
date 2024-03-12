@@ -8,11 +8,13 @@ touch /run/rnm-dpdk/rnm.conf
 echo RNM_NETIF=$PCI_SLOT_NAME > /run/rnm-dpdk/rnm.conf
 
 NAME=$(hostname)-rnm
-DNSREPLY=$(resolvectl query $NAME 2>/dev/null)
+DNSREPLY=$(resolvectl query --legend=no $NAME 2>/dev/null)
 if [ "$?" -eq 0 ]; then
-	ADDRESS=$(echo "$DNSREPLY" | sed -n "s,$NAME: \([0-9.]*\) .*,\1,p")
+	ADDRESS=$(echo $DNSREPLY | sed -n "s,$NAME: \([0-9\.]*\) .*,\1,p")
 	LASTOCTECT=$(echo $ADDRESS | cut -d. -f4)
-	echo CLIENTID="-- --client-id $LASTOCTECT" >> /run/rnm-dpdk/rnm.conf
+	echo CLIENTID=$LASTOCTECT >> /run/rnm-dpdk/rnm.conf
+else
+	echo CLIENTID=0 >> /run/rnm-dpdk/rnm.conf
 fi
 echo RNM_LCORE=$RNM_LCORE >> /run/rnm-dpdk/rnm.conf
 if [ -n "$RNM_DEVARGS" ]; then
