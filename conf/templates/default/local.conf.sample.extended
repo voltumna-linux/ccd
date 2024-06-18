@@ -31,10 +31,11 @@
 #do_fetch[number_threads] = "4"
 #
 
-# If you want to get an image based on directfb without x11 alter
-# DISTRO_FEATURES:
-#DISTRO_FEATURES:append = " directfb"
-#DISTRO_FEATURES:remove = "x11"
+
+#DISTRO_FEATURES = "alsa bluetooth ext2 irda ipv4 ipv6 pcmcia usbgadget usbhost wifi nfs zeroconf pci"
+
+# If you want to get an image based on directfb without x11, Please copy this variable to build/conf/local.conf
+#DISTRO_FEATURES = "alsa bluetooth ext2 irda ipv4 ipv6 pcmcia usbgadget usbhost wifi xattr nfs zeroconf pci 3g directfb"
 
 # ENABLE_BINARY_LOCALE_GENERATION controls the generation of binary locale
 # packages at build time using qemu-native. Disabling it (by setting it to 0)
@@ -178,13 +179,13 @@
 # implications so they are disabled by default.  To enable them,
 # un-comment the below as appropriate.
 #LICENSE_FLAGS_ACCEPTED = "commercial_gst-fluendo-mp3 \
-#                           commercial_gst-openmax \
-#                           commercial_gst-plugins-ugly \
-#                           commercial_lame \
-#                           commercial_libmad \
-#                           commercial_libomxil \
-#                           commercial_mpeg2dec \
-#                           commercial_qmmp"
+#                          commercial_gst-openmax \
+#                          commercial_gst-plugins-ugly \
+#                          commercial_lame \
+#                          commercial_libmad \
+#                          commercial_libomxil \
+#                          commercial_mpeg2dec \
+#                          commercial_qmmp"
 
 
 #
@@ -263,7 +264,7 @@
 #
 # By including the security_flags include file you enable flags
 # to the compiler and linker that cause them to generate more secure
-# code.
+# code, this is enabled by default in the poky-lsb distro.
 # This does affect compile speed slightly.
 #
 # Use the following line to enable the security compiler and linker flags to your build

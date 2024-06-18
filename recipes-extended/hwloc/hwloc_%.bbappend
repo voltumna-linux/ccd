@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = "numactl"
+DEPENDS:append = " numactl"

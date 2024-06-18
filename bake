@@ -3,56 +3,56 @@ nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
-MACHINE="s-4125r-x11spw-tf-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-6346-06v45n-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-e5462-x7dwu-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-e5472-x7dwu-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-e52637v3-x10drw-i-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-e52637v4-x10dru-iplus-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-e52643v4-x10dru-iplus-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="s-d1718t-x12sdv-4c-sp6f-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="s-x6425e-a3sev-4c-ln4-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
+#MACHINE="s-4125r-x11spw-tf-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="d-6346-06v45n-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="d-e5462-x7dwu-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="d-e5472-x7dwu-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="d-e52637v3-x10drw-i-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="d-e52637v4-x10dru-iplus-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="d-e52643v4-x10dru-iplus-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="s-d1718t-x12sdv-4c-sp6f-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
+#MACHINE="s-x6425e-a3sev-4c-ln4-rnm"
+#nice bitbake -k ccd-sre ccd-sde || return
+#SDKMACHINE="x86_64"
+#nice bitbake -k ccd-sdk -c populate_sdk || return
+#
 #MACHINE="kvm-ivybridge"
 #nice bitbake -k ccd-sre || return
 #SDKMACHINE="x86_64"
 #nice bitbake -k ccd-sdk -c populate_sdk || return
-
+#
 #MACHINE="kvm-naples"
 #nice bitbake -k ccd-sre || return
 #SDKMACHINE="x86_64"

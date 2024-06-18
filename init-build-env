@@ -1,9 +1,9 @@
 BASEDIR="${PWD}/`dirname ${BASH_SOURCE}`"
 
 export BITBAKEDIR="${BASEDIR}/meta-voltumna/bitbake"
-export TEMPLATECONF="${BASEDIR}/conf"
+export TEMPLATECONF="${BASEDIR}/conf/templates/default"
 
-export DISTRO="voltumna"
+export DISTRO="ccd"
 export MACHINE
 export SDKMACHINE
 
