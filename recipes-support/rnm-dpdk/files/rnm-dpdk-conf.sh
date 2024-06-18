@@ -20,3 +20,6 @@ echo RNM_LCORE=$RNM_LCORE >> /run/rnm-dpdk/rnm.conf
 if [ -n "$RNM_DEVARGS" ]; then
 	echo RNM_DEVARGS=,$RNM_DEVARGS >> /run/rnm-dpdk/rnm.conf
 fi
+
+/usr/bin/dpdk-devbind.py --bind=vfio-pci \
+	$(basename -a /sys/bus/pci/devices/$PCI_SLOT_NAME/iommu_group/devices/${PCI_SLOT_NAME::-1}*)

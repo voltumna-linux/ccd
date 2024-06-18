@@ -7,7 +7,7 @@ RequiresMountsFor=/run
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'sleep 1; /usr/bin/rnm-dpdk-conf.sh'
+ExecStart=/usr/bin/rnm-dpdk-conf.sh
 RemainAfterExit=yes
 
 [Install]
