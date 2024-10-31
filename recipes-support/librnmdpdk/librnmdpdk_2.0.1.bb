@@ -4,8 +4,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d65a93982c9fc6a88db9de682b55980d"
 
 DEPENDS:append = "dpdk"
 
-SRC_URI = "https://gitlab.elettra.eu/cs/lib/librnmdpdk/-/archive/${PV}/librnmdpdk-${PV}.tar.bz2"
-SRC_URI[sha256sum] = "f232791785f9d5fd40eaf90c65f8232c9950483a7f14a72a95e8211dd6a97edd"
+SRCREV = "48a6ff7af010a0b3a609bdc6f22acdbe26505731"
+SRC_URI = "git://gitlab.elettra.eu/cs/lib/librnmdpdk.git;protocol=https;branch=master"
+S = "${WORKDIR}/git"
 
 do_install() {
 	oe_runmake PREFIX=${D}${prefix} install
