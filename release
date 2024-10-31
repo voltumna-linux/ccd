@@ -12,7 +12,7 @@ IMAGES[d-6244-x11dph-t-rnm]="ccd-sde intranet os.tar net.tar
 IMAGES[s-4125r-x11spw-tf-rnm]="ccd-sde intranet os.tar net.tar
 			       ccd-sre intranet os.tar net.tar
 			       ccd-sdk intranet sh"
-IMAGES[d-6346-06v45n-rnm]="ccd-sde intranet os.tar net.tar
+IMAGES[d-6346-06v45n-gof]="ccd-sde intranet os.tar net.tar
 			   ccd-sre intranet os.tar net.tar
                            ccd-sdk intranet sh"
 IMAGES[d-e5462-x7dwu-rnm]="ccd-sde intranet os.tar net.tar

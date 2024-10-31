@@ -8,7 +8,7 @@ nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
 
-MACHINE="d-6346-06v45n-rnm"
+MACHINE="d-6346-06v45n-gof"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
