@@ -9,4 +9,5 @@ TOOLCHAIN_HOST_TASK:append = " nativesdk-pogo nativesdk-jive \
 	nativesdk-lapack-dev nativesdk-libandor2-dev \
 	nativesdk-libpdv-dev nativesdk-libhimage-dev \
 	nativesdk-libtucam-dev nativesdk-libdcam-dev \
-	nativesdk-libximc-dev"
+	nativesdk-libximc-dev nativesdk-libandor3-dev \
+	nativesdk-libbitflow-dev"
