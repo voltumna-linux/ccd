@@ -1,9 +1,10 @@
 include andor3.inc
 
-DEPENDS += "libusb-compat numactl curl"
+DEPENDS += "libusb-compat curl numactl"
+DEPENDS:class-nativesdk += "libusb-compat curl"
+RDEPENDS:${PN} += "libbitflow"
 
-# TODO Remove file-rdeps as soon as libBFSOciLib.9.08.so is packaged
-INSANE_SKIP:${PN} += "already-stripped dev-so file-rdeps"
+INSANE_SKIP:${PN} += "already-stripped"
 
 PACKAGES += " ${BPN}-examples"
 FILES:${PN}-examples += "${datadir}/${BPN}/examples"
@@ -11,26 +12,28 @@ FILES:${PN}-examples += "${datadir}/${BPN}/examples"
 FILES:${PN} += " \
 	${sysconfdir}/apogee \
 	${sysconfdir}/udev/rules.d \
-	${libdir} \
+	${libdir}/lib*gcc52*.so \
 	"
 
-FILES_SOLIBSDEV = ""
+FILES:${PN}-dev:remove = "${libdir}/lib*.so"
+FILES:${PN}-dev:append = " ${libdir}/libat*.so ${libdir}/libat*.so.3"
 
-do_install () {
- 	install -d ${D}${includedir}/GenAPIinc ${D}${libdir}
+do_install() {
+ 	install -d ${D}${includedir}/GenAPIinc
  	install -m 0644 ${S}/inc/* ${D}${includedir}
 	cp -r ${S}/GenAPIinc/* ${D}${includedir}/GenAPIinc
 
-	for p in `ls ${S}/x86_64/lib*3.15*`
+ 	install -d ${D}${libdir}
+	install -m 0755 ${S}/x86_64/GenAPI/lib* ${D}${libdir}
+	for l in `ls ${S}/x86_64/lib*`
 	do
-		n=`basename $p | sed -n "s,\(.*\).so.*,\1,p"`
-		v=`basename $p | sed -n "s,.*.so.\(.*\),\1,p"`
-	 	lib="${n}.so.${v}"
-	 	install -m 0644 ${S}/x86_64/${lib} ${D}${libdir}
-	 	ln -sfrn ${D}${libdir}/$lib ${D}${libdir}/$n.so
-	 	ln -sfrn ${D}${libdir}/$lib ${D}${libdir}/$n.so.3
+		libfile=`basename ${l}`
+		install -m 0755 ${S}/x86_64/${libfile} ${D}${libdir}
+		libname=`echo ${libfile} | sed -n "s,\(.*\).so.*,\1,p"`
+		libversion=`echo ${libfile} | sed -n "s,.*.so.\(.*\),\1,p"`
+		ln -sfrn ${D}${libdir}/${libfile} ${D}${libdir}/${libname}.so
+		ln -sfrn ${D}${libdir}/${libfile} ${D}${libdir}/${libname}.so.3
 	done
-	cp -r ${S}/x86_64/GenAPI/* ${D}${libdir}
  	
 	install -d ${D}${docdir}/${BPN}
 	cp -r ${S}/doc/* ${D}${docdir}/${BPN}/
