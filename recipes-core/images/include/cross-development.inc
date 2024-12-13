@@ -4,4 +4,4 @@ TOOLCHAIN_HOST_TASK_append = " nativesdk-pogo nativesdk-jive \
 	nativesdk-gsl-dev nativesdk-itpp-dev nativesdk-fftw-dev \
 	nativesdk-libfit-dev nativesdk-libbufferrt-dev \
 	nativesdk-libpylon-dev nativesdk-cpptango-dev \
-	nativesdk-libemergent-dev"
+	nativesdk-hdf5-dev"
