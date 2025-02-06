@@ -2,6 +2,10 @@ include hamamatsu.inc
 
 inherit module
 
+SRC_URI:append = " \
+	file://activesilicon.conf \
+	"
+
 MAKE_TARGETS = "build"
 
 do_compile() {
@@ -19,14 +23,19 @@ do_compile() {
 
 FILES:${PN} += " \
 	${sysconfdir}/udev/rules.d \
+	${sysconfdir}/modules-load.d \
 	"
 
 do_install() {
     cd ${S}/usr/local/activesilicon/source/driver/mdadrv/linux/
     install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/misc
     install -m 0644 asl*/*.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/misc
-    install -d ${D}${sysconfdir}/udev/rules.d/
-    install -m 0644 aslenum/system/activesilicon.rules ${D}${sysconfdir}/udev/rules.d/
+
+    install -d ${D}${sysconfdir}/modules-load.d/
+    install -m 0644 ${WORKDIR}/activesilicon.conf ${D}${sysconfdir}/modules-load.d/activesilicon.conf.disabled
+
+#    install -d ${D}${sysconfdir}/udev/rules.d/
+#    install -m 0644 aslenum/system/activesilicon.rules ${D}${sysconfdir}/udev/rules.d/
 }
 
 do_extract_data() {
