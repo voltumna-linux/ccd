@@ -153,3 +153,15 @@ diff -ruNp esdk-5.3/opt/EVT/myri_mva-1.2.11.x86_64.5.3.0/src/driver/linux/mx_arc
  #else
  #define NANOSECOND 1000000000L
  static inline int64_t
+diff -ruNp myricom-mva-module-1.2.11.orig/opt/EVT/myricom_mva/src/driver/linux/mx_linux_compat.h myricom-mva-module-1.2.11/opt/EVT/myricom_mva/src/driver/linux/mx_linux_compat.h
+--- myricom-mva-module-1.2.11.orig/opt/EVT/myricom_mva/src/driver/linux/mx_linux_compat.h	2021-03-09 22:28:42.000000000 +0000
++++ myricom-mva-module-1.2.11/opt/EVT/myricom_mva/src/driver/linux/mx_linux_compat.h	2024-12-06 16:08:53.526108002 +0000
+@@ -71,7 +71,7 @@
+ 
+ #include <linux/pagemap.h>
+ #ifdef HAVE_LINUX_COMPILE_H
+-#include <linux/compile.h>
++#include <generated/compile.h>
+ #endif
+ 
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,0)
