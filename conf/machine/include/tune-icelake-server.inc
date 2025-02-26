@@ -16,7 +16,7 @@ require tune-cascadelake.inc
 
 # Extra tune features
 TUNEVALID[icelake-server] = "Enable icelake-server pecific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'icelake-server', ' -march=icelake-server -mfpmath=sse ${ADDITIONAL_ISA}', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'icelake-server', ' -march=icelake-server -mtune=icelake-server ${ADDITIONAL_ISA}', '', d)}"
 TUNECONFLICTS[icelake-server] = "m32 mx32"
 
 # Extra tune selections
