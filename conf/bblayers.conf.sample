@@ -22,7 +22,6 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-ti/meta-ti-extras \
   ##OEROOT##/../meta-amd/meta-amd-bsp \
   ##OEROOT##/../meta-clang \
-  ##OEROOT##/../meta-96boards \
   ##OEROOT##/../meta-openembedded/meta-oe \
   ##OEROOT##/../meta-openembedded/meta-filesystems \
   ##OEROOT##/../meta-openembedded/meta-python \
