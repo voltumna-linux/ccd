@@ -31,9 +31,7 @@ OPENBLAS_TARGET = "SKYLAKEX"
 ADDITIONAL_ISA = "${@bb.utils.contains('MACHINE_FEATURES', 'highly-optimized', '', ' ${ADVANCED_ISA}', d)}"
 ADVANCED_ISA = " \
 -mno-avx512f \
--mno-avx512er \
 -mno-avx512cd \
--mno-avx512pf \
 -mno-avx512dq \
 -mno-avx512bw \
 -mno-avx512vl \
