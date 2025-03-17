@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 VERSION="2.27.4"
 BUILDNUMBER="20608"
 SRC_URI = " \
-	file://esdk-installer_${VERSION}.${BUILDNUMBER}.zip \
+        https://www.elettra.eu/images/Documents/Voltumna/intranet/predownloaded-tarballs/esdk-installer_${VERSION}.${BUILDNUMBER}.zip \
 	file://Porting-from-5.3-to-5.4.patch \
 	"
 SRC_URI[sha256sum] = "4c508e695d2b6562b917e324a531173172d2208674eb852148757d080ee71a78"
