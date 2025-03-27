@@ -65,7 +65,7 @@ python do_unpack:append:a3sev-4c-ln4() {
 
 do_install() {
 	install -d ${D}${datadir}/${BPN}
-	install -m 0444 ${WORKDIR}/bios_configuration.bin ${D}${datadir}/${BPN}
+	install -m 0444 ${UNPACKDIR}/bios_configuration.bin ${D}${datadir}/${BPN}
 }
 
 do_install:append:x10dru-iplus() {
@@ -106,7 +106,7 @@ do_install:append:a3sev-4c-ln4() {
 
 do_install:append:up-whl01() {
 	install -d ${D}${datadir}/${BPN}
-	install -m 0444 ${WORKDIR}/UPW1AM21/*.BIN \
-		${WORKDIR}/BIOS_update_SOP.txt \
+	install -m 0444 ${UNPACKDIR}/UPW1AM21/*.BIN \
+		${UNPACKDIR}/BIOS_update_SOP.txt \
 		${D}${datadir}/${BPN}
 }
