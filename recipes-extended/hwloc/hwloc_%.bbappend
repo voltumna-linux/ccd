@@ -1,1 +1,1 @@
-PACKAGECONFIG_append_x11dph-t = "numactl"
+PACKAGECONFIG_append = " numactl"
