@@ -1,6 +1,6 @@
 IMAGE_INSTALL:append = " python3-pyelftools openblas-dev gsl-dev \
 	itpp-dev fftw-dev libfit-dev libpylon-dev cpptango-dev \
-	lapack-dev hdf5"
+	numactl-dev lapack-dev hdf5"
 
 IMAGE_INSTALL:append:rnm = " librnmshare-dev librnmdpdk-dev \
 	libbufferrt-dev" 
