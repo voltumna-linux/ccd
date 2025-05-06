@@ -2,8 +2,3 @@ MACHINE="s-d1718t-x12sdv-4c-sp6f-rnm"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
-
-#MACHINE=s-9124-h13ssw-rnm
-#nice bitbake -k ccd-sre ccd-sde || return
-#SDKMACHINE="x86_64"
-#nice bitbake -k ccd-sdk -c populate_sdk || return
