@@ -31,6 +31,8 @@ OPENBLAS_TARGET = "ZEN"
 
 ADDITIONAL_ISA = "${@bb.utils.contains('MACHINE_FEATURES', 'highly-optimized', '', ' ${ADVANCED_ISA}', d)}"
 ADVANCED_ISA = " \
+-mno-avx \
+-mno-avx2 \
 -mno-avx512f \
 -mno-avx512er \
 -mno-avx512cd \
