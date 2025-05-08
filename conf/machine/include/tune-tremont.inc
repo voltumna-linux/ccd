@@ -14,7 +14,7 @@ require conf/machine/include/x86/tune-core2.inc
 
 # Extra tune features
 TUNEVALID[tremont] = "Enable tremont specific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'tremont', ' -march=tremont -mtune=tremont -mfpmath=sse -msse4.2', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'tremont', ' -march=tremont -mtune=tremont', '', d)}"
 
 # Extra tune selections
 AVAILTUNES += "tremont-64"

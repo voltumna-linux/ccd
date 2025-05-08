@@ -12,7 +12,7 @@ require conf/machine/include/x86/tune-core2.inc
 
 # Extra tune features
 TUNEVALID[penryn] = "Enable penryn specific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'penryn', ' -march=core2 -mtune=core2 -msse4.1 -mfpmath=sse', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'penryn', ' -march=core2 -mtune=core2 -msse4.1', '', d)}"
 
 # Extra tune selections
 AVAILTUNES += "penryn-64"

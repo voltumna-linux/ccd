@@ -14,7 +14,7 @@ require tune-skylake.inc
 
 # Extra tune features
 TUNEVALID[cascadelake] = "Enable cascadelake specific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'cascadelake', ' -march=cascadelake ${CASCADELAKE_TUNE} -mfpmath=sse', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'cascadelake', ' -march=cascadelake ${CASCADELAKE_TUNE}', '', d)}"
 
 # Extra tune selections
 
@@ -25,7 +25,7 @@ TUNE_PKGARCH:tune-cascadelake-64 = "cascadelake-64"
 PACKAGE_EXTRA_ARCHS:tune-cascadelake-64 = "${PACKAGE_EXTRA_ARCHS:tune-skylake-64} cascadelake-64"
 QEMU_EXTRAOPTIONS_cascadelake-64 = " -cpu Cascadelake-Server"
 
-CASCADELAKE_TUNE .= "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', ' ${QEMU_UNAVAILABLE_ISA}', '-mtune=generic -mavx2', d)}"
+CASCADELAKE_TUNE .= "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', ' ${QEMU_UNAVAILABLE_ISA}', '', d)}"
 
 QEMU_UNAVAILABLE_ISA = " \
 -mno-avx \

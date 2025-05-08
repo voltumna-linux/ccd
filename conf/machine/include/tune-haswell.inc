@@ -13,7 +13,7 @@ require conf/machine/include/x86/tune-corei7.inc
 
 # Extra tune features
 TUNEVALID[haswell] = "Enable haswell specific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'haswell', ' -march=haswell ${HASWELL_TUNE} -mfpmath=sse', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'haswell', ' -march=haswell ${HASWELL_TUNE}', '', d)}"
 
 # Extra tune selections
 
@@ -25,7 +25,7 @@ PACKAGE_EXTRA_ARCHS:tune-haswell-64 = "${PACKAGE_EXTRA_ARCHS:tune-corei7-64} has
 QEMU_EXTRAOPTIONS_haswell-64 = " -cpu Haswell"
 
 # If qemu-usermode is enabled, we have to disable avx2 ISA extensions, but we can keep mtune as haswell vs generic
-HASWELL_TUNE .= "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', ' ${QEMU_UNAVAILABLE_ISA}', '-mtune=generic -mavx2', d)}"
+HASWELL_TUNE .= "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', ' ${QEMU_UNAVAILABLE_ISA}', '', d)}"
 
 QEMU_UNAVAILABLE_ISA = " \
 -mno-avx \

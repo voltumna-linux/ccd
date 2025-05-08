@@ -13,7 +13,7 @@ require conf/machine/include/x86/tune-corei7.inc
 
 # Extra tune features
 TUNEVALID[broadwell] = "Enable broadwell specific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'broadwell', ' -march=broadwell ${BROADWELL_TUNE} -mfpmath=sse', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'broadwell', ' -march=broadwell ${BROADWELL_TUNE}', '', d)}"
 
 # Extra tune selections
 
@@ -25,7 +25,7 @@ PACKAGE_EXTRA_ARCHS:tune-broadwell-64 = "${PACKAGE_EXTRA_ARCHS:tune-corei7-64} b
 QEMU_EXTRAOPTIONS_broadwell-64 = " -cpu Broadwell"
 
 # If qemu-usermode is enabled, we have to disable avx2 ISA extensions, but we can keep mtune as broadwell vs generic
-BROADWELL_TUNE .= "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', ' ${QEMU_UNAVAILABLE_ISA}', '-mtune=generic -mavx2', d)}"
+BROADWELL_TUNE .= "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', ' ${QEMU_UNAVAILABLE_ISA}', '', d)}"
 
 QEMU_UNAVAILABLE_ISA = " \
 -mno-avx \
