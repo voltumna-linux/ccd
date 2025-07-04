@@ -21,7 +21,7 @@ SRC_URI:append:x11spw-tf = " https://www.supermicro.com/Bios/softfiles/25341/X11
 SRC_URI:append:up-whl01 = " https://downloads.up-community.org/download/up-xtreme-uefi-bios-v2-1/?wpdmdl=1054&ind=ecKW0_nM8nrydmuNytAW1RIUmj5aOiUe2fxxPUAD9itQKU2UYBGqicZeXYUpURsg1Sc6X-KFZ9Lp0EaBBT_pk_kUXIZnksIh49fZWcaTUUIWKHwFJHfvhSvWPND8w6So;;downloadfilename=UPW1AM21.zip;name=bios-up \
 			file://BIOS_update_SOP.txt"
 SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/23980/X12SDV-xC-SP6F_1.9_AS01.04.10_SUM2.14.0-p8.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
-SRC_URI:append:a3sev-4c-ln4 = " https://www.supermicro.com/Bios/softfiles/23899/BIOS_A3SEV-1C2A_20250115_1.9_STDsp.zip;subdir=${BPN};name=bios-a3sev-4c-ln4"
+SRC_URI:append:a3sev-4c-ln4 = " https://www.supermicro.com/Bios/softfiles/25796/BIOS_A3SEV-1C2A_20250521_2.1_STDsp.zip;subdir=${BPN};name=bios-a3sev-4c-ln4"
 
 SRC_URI[bios-x10dru-iplus.sha256sum] = "d24b8f6b7f4ed186bbca662751b7d80ae6efd014d1ba71b47d9c4370eaa39fb4"
 SRC_URI[bmc-x10dru-iplus.sha256sum] = "80fcf01d2073cabe81118140a8494c8a65431dd5d20460c12272db110b5f8d21"
@@ -31,7 +31,7 @@ SRC_URI[bios-x11dph-t.sha256sum] = "88878d2e35c1cf496e69c29871a82c5503de2375d175
 SRC_URI[bios-x11spw-tf.sha256sum] = "da5cb74fa94675272a00cf4f0e46c09e60fe957069572a460bd6e3edce9f109e"
 SRC_URI[bios-up.sha256sum] = "3372cb69885ec75ac3a75b4079a9370a5e918ecc0853b37eb879f809c67149f0"
 SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "f700d605d2d0d687ef4438da58cb73e111c092bdfa4ee2983f52bcabc85550a9"
-SRC_URI[bios-a3sev-4c-ln4.sha256sum] = "92957fee73bee6b573fcc95d476b12a9108283fd764296092ee22fde45f2a984"
+SRC_URI[bios-a3sev-4c-ln4.sha256sum] = "84fa244867232e6575344f49995c5f030f8c904306d980a96f0b04217ac46582"
 
 
 S = "${WORKDIR}/${BPN}"
@@ -40,6 +40,10 @@ INSANE_SKIP:${PN} += "already-stripped ldflags file-rdeps debug-files"
 
 do_extract() {
 	unzip ${S}/BIOS*.zip -d ${S}/BIOS
+}
+
+do_extract2() {
+	unzip ${S}/BIOS*/BIOS*.zip -d ${S}/BIOS
 }
 
 do_extract_bundled() {
@@ -60,7 +64,7 @@ python do_unpack:append:x12sdv-4c-sp6f() {
 }
 
 python do_unpack:append:a3sev-4c-ln4() {
-    bb.build.exec_func('do_extract', d)
+    bb.build.exec_func('do_extract2', d)
 }
 
 do_install() {
