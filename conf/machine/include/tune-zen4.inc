@@ -15,7 +15,7 @@ DEFAULTTUNE ?= "zen4"
 require conf/machine/include/tune-zen3.inc
 
 # Extra tune features
-TUNEVALID[zen4] = "Enable AMD x86 (64 bit) Zen 3 Core Architecture specific optimizations"
+TUNEVALID[zen4] = "Enable AMD x86 (64 bit) Zen 4 Core Architecture specific optimizations"
 TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'zen4', ' -march=znver4 -mtune=znver4 ${ADDITIONAL_ISA}', '', d)}"
 TUNECONFLICTS[zen4] = "m32 mx32"
 
@@ -34,9 +34,7 @@ ADVANCED_ISA = " \
 -mno-avx \
 -mno-avx2 \
 -mno-avx512f \
--mno-avx512er \
 -mno-avx512cd \
--mno-avx512pf \
 -mno-avx512dq \
 -mno-avx512bw \
 -mno-avx512vl \
@@ -47,4 +45,3 @@ ADVANCED_ISA = " \
 -mno-avx512bitalg \
 -mno-avx512vpopcntdq \
 "
-

@@ -10,6 +10,7 @@ RDEPENDS:${PN}:append:x11dph-t = "sum"
 RDEPENDS:${PN}:append:x11spw-tf = "sum"
 RDEPENDS:${PN}:append:x12sdv-4c-sp6f = "sum"
 RDEPENDS:${PN}:append:a3sev-4c-ln4 = "sum"
+RDEPENDS:${PN}:append:h14dsh = "saa"
 
 SRC_URI = " file://bios_configuration.bin"
 SRC_URI:append:x10dru-iplus = " https://www.supermicro.com/Bios/softfiles/15575/X10DRU2.427.zip;subdir=${BPN};name=bios-x10dru-iplus \
@@ -22,6 +23,7 @@ SRC_URI:append:up-whl01 = " https://downloads.up-community.org/download/up-xtrem
 			file://BIOS_update_SOP.txt"
 SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/23980/X12SDV-xC-SP6F_1.9_AS01.04.10_SUM2.14.0-p8.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
 SRC_URI:append:a3sev-4c-ln4 = " https://www.supermicro.com/Bios/softfiles/25796/BIOS_A3SEV-1C2A_20250521_2.1_STDsp.zip;subdir=${BPN};name=bios-a3sev-4c-ln4"
+SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/25314/H14DSH_1.5_AS01.01.04.01_SAA1.3.0-p1.zip;subdir=${BPN};name=bios-h14dsh"
 
 SRC_URI[bios-x10dru-iplus.sha256sum] = "d24b8f6b7f4ed186bbca662751b7d80ae6efd014d1ba71b47d9c4370eaa39fb4"
 SRC_URI[bmc-x10dru-iplus.sha256sum] = "80fcf01d2073cabe81118140a8494c8a65431dd5d20460c12272db110b5f8d21"
@@ -32,6 +34,7 @@ SRC_URI[bios-x11spw-tf.sha256sum] = "da5cb74fa94675272a00cf4f0e46c09e60fe9570695
 SRC_URI[bios-up.sha256sum] = "3372cb69885ec75ac3a75b4079a9370a5e918ecc0853b37eb879f809c67149f0"
 SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "f700d605d2d0d687ef4438da58cb73e111c092bdfa4ee2983f52bcabc85550a9"
 SRC_URI[bios-a3sev-4c-ln4.sha256sum] = "84fa244867232e6575344f49995c5f030f8c904306d980a96f0b04217ac46582"
+SRC_URI[bios-h14dsh.sha256sum] = "7a831807a61e8125c32efaddf700e94d6d5415ae381dda10af3bf1cfa289d392"
 
 
 S = "${UNPACKDIR}/${BPN}"
@@ -65,6 +68,10 @@ python do_unpack:append:x12sdv-4c-sp6f() {
 
 python do_unpack:append:a3sev-4c-ln4() {
     bb.build.exec_func('do_extract2', d)
+}
+
+python do_unpack:append:h14dsh() {
+    bb.build.exec_func('do_extract_bundled', d)
 }
 
 do_install() {
@@ -112,5 +119,11 @@ do_install:append:up-whl01() {
 	install -d ${D}${datadir}/${BPN}
 	install -m 0444 ${UNPACKDIR}/UPW1AM21/*.BIN \
 		${UNPACKDIR}/BIOS_update_SOP.txt \
+		${D}${datadir}/${BPN}
+}
+
+do_install:append:h14dsh() {
+	install -d ${D}${datadir}/${BPN}
+	install -m 0444 ${S}/BMC/BMC*.bin ${S}/BIOS/BIOS*.bin \
 		${D}${datadir}/${BPN}
 }
