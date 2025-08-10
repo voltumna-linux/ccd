@@ -6,7 +6,7 @@
 require conf/machine/include/tune-zen5.inc
 require conf/machine/include/uart.inc
 
-MACHINEOVERRIDES =. "amd:"
+MACHINEOVERRIDES =. "amd:amdx86:"
 ALLOW_EMPTY:${KERNEL_PACKAGE_NAME}-devicetree = "1"
 MACHINE_FEATURES += "efi"
 EFI_PROVIDER = ""
