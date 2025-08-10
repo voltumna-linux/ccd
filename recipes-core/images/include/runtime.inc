@@ -5,12 +5,13 @@ IMAGE_INSTALL:append = " lshw hwloc dmidecode starter \
 	libandor2 kernel-module-edt libpdv edt-utils \
 	libtucam firebird-modules libdcam libximc libandor3 \
 	kernel-module-bitflow libbitflow hdf5 python3-h5py \
-	intel-speed-select kernel-module-pixci xclib"
+	kernel-module-pixci xclib cpupower"
 
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
         rnm-dpdk-watch dpdk dpdk-tools libbufferrt"
-IMAGE_INSTALL:append:rnm:intel-x86-common = " intel-cmt-cat intel-pcm"
+IMAGE_INSTALL:append:rnm:intel-x86-common = " intel-cmt-cat intel-pcm \
+        intel-speed-select"
 
 IMAGE_INSTALL:remove:kvm = " libpylon caenvmelib \
 	kernel-module-a3818 a3818 libandor2 kernel-module-edt \
