@@ -1,7 +1,7 @@
 IMAGE_INSTALL:append = " lshw hwloc dmidecode starter \
 	numactl openblas gsl itpp libfftw libfftwf libfftwl \
 	python3-pytango libfit tcpdump users rsync netcat \
-	vlan lapack libpylon hdf5 python3-h5py cpupower"
+	vlan lapack libpylon boost hdf5 python3-h5py cpupower turbostat"
 
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
