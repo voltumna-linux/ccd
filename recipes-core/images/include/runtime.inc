@@ -5,7 +5,7 @@ IMAGE_INSTALL:append = " lshw hwloc dmidecode starter \
 	libandor2 kernel-module-edt libpdv edt-utils \
 	libtucam firebird-modules libdcam libximc libandor3 \
 	kernel-module-bitflow libbitflow hdf5 python3-h5py \
-	kernel-module-pixci xclib cpupower"
+	kernel-module-pixci xclib boost cpupower turbostat"
 
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \

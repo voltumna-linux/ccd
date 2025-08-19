@@ -3,7 +3,7 @@ IMAGE_INSTALL:append = " python3-pyelftools openblas-dev gsl-dev \
 	a3818-dev caenvmelib-dev lapack-dev libandor2-dev \
 	libpdv-dev libtucam-dev libdcam-dev numactl-dev \
 	libximc-dev libandor3-dev libbitflow-dev hdf5-dev \
-        xclib-dev"
+        xclib-dev boost-dev"
 
 IMAGE_INSTALL:append:fast = " dpdk-dev"
 IMAGE_INSTALL:append:rnm = " librnmshare-dev librnmdpdk-dev \
