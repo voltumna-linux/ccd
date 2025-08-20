@@ -47,3 +47,8 @@ MACHINE="s-x6425e-a3sev-4c-ln4-rnm"
 nice bitbake -k ccd-sre ccd-sde || return
 SDKMACHINE="x86_64"
 nice bitbake -k ccd-sdk -c populate_sdk || return
+
+MACHINE="d-9755-h14dsh-fast"
+nice bitbake -k ccd-sre ccd-sde || return
+SDKMACHINE="x86_64"
+nice bitbake -k ccd-sdk -c populate_sdk || return
