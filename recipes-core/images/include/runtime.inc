@@ -6,8 +6,7 @@ IMAGE_INSTALL:append = " lshw hwloc dmidecode starter \
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
         rnm-dpdk-watch dpdk dpdk-tools libbufferrt"
-IMAGE_INSTALL:append:rnm:intel-x86-common = " intel-cmt-cat intel-pcm \
-        intel-speed-select"
+IMAGE_INSTALL:append:rnm:intel-x86-common = " intel-cmt-cat intel-pcm"
 
 IMAGE_INSTALL:remove:kvm = " libpylon caenvmelib \
 	kernel-module-a3818 a3818 libandor2 kernel-module-edt \
