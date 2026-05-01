@@ -33,3 +33,5 @@ ALLOW_EMPTY:${KERNEL_PACKAGE_NAME}-devicetree = "1"
 MACHINEOVERRIDES =. "intel-corei7-64:"
 
 EFI_PROVIDER = ""
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS:remove = "kernel-module-igc"
