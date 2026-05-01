@@ -1,11 +1,13 @@
-IMAGE_INSTALL:append = " lshw hwloc dmidecode starter \
+IMAGE_INSTALL:append = " hwloc dmidecode starter \
 	numactl openblas gsl itpp libfftw libfftwf libfftwl \
-	python3-pytango libfit tcpdump users rsync netcat \
+	python3-pytango libfit tcpdump users rsync screen netcat \
 	vlan lapack libpylon caenvmelib kernel-module-a3818 a3818 \
 	libandor2 kernel-module-edt libpdv edt-utils \
 	libtucam firebird-modules libdcam libximc libandor3 \
 	kernel-module-bitflow libbitflow hdf5 python3-h5py \
-	kernel-module-pixci xclib boost cpupower turbostat"
+	kernel-module-pixci pixci-utils xclib boost cpupower \
+        turbostat rt-tests iputils-ping iputils-arping \
+        net-snmp-client net-snmp-mibs python3-netsnmp perf"
 
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
@@ -16,5 +18,5 @@ IMAGE_INSTALL:remove:kvm = " libpylon caenvmelib \
 	kernel-module-a3818 a3818 libandor2 kernel-module-edt \
 	libpdv edt-utils libtucam firebird-modules libdcam \
 	libximc libandor3 kernel-module-bitflow libbitflow \
-        kernel-module-pixci xclib"
+        kernel-module-pixci pixci-utils xclib"
 
