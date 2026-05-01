@@ -17,25 +17,24 @@ SRC_URI:append:x10dru-iplus = " https://www.supermicro.com/Bios/softfiles/15575/
 		https://www.supermicro.com/Bios/softfiles/14879/BMC_X10AST2400-C001MS_20211001_03.94_STD.zip;subdir=${BPN};name=bmc-x10dru-iplus"
 SRC_URI:append:x10drw-i = " https://www.supermicro.com/Bios/softfiles/10581/X10DRW9_B22.zip;subdir=${BPN};name=bios-x10drw-i \
 		https://www.supermicro.com/Bios/softfiles/12112/REDFISH_X10_389_20200623_unsigned.zip;subdir=${BPN};name=bmc-x10drw-i"
-SRC_URI:append:x11dph-t = " https://www.supermicro.com/Bios/softfiles/22681/X11DPH-I,T,Tq_4.3_AS1.74.14_SUM2.13.0.zip;subdir=${BPN};name=bios-x11dph-t"
-SRC_URI:append:x11spw-tf = " https://www.supermicro.com/Bios/softfiles/26645/X11SPW_4.7_AS01.74.17_SUM2.14.0.zip;subdir=${BPN};name=bios-x11spw-tf"
+SRC_URI:append:x11dph-t = " https://www.supermicro.com/Bios/softfiles/28206/X11DPH-I,T,Tq_4.7_AS1.74.19_SUM2.14.0.zip;subdir=${BPN};name=bios-x11dph-t"
+SRC_URI:append:x11spw-tf = " https://www.supermicro.com/Bios/softfiles/27650/X11SPW_4.7_AS01.74.19_SUM2.14.0.zip;subdir=${BPN};name=bios-x11spw-tf"
 SRC_URI:append:up-whl01 = " https://downloads.up-community.org/download/up-xtreme-uefi-bios-v2-1/?wpdmdl=1054&ind=ecKW0_nM8nrydmuNytAW1RIUmj5aOiUe2fxxPUAD9itQKU2UYBGqicZeXYUpURsg1Sc6X-KFZ9Lp0EaBBT_pk_kUXIZnksIh49fZWcaTUUIWKHwFJHfvhSvWPND8w6So;;downloadfilename=UPW1AM21.zip;name=bios-up \
 			file://BIOS_update_SOP.txt"
-SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/27081/X12SDV-xC-SP6F_2.1_AS01.04.10_SAA1.2.0-p2.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
+SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/29835/X12SDV-xC-SP6F_2.2_AS01.06.08_SAA1.4.0.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
 SRC_URI:append:a3sev-4c-ln4 = " https://www.supermicro.com/Bios/softfiles/25796/BIOS_A3SEV-1C2A_20250521_2.1_STDsp.zip;subdir=${BPN};name=bios-a3sev-4c-ln4"
-SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/26897/H14DSH_1.5_AS01.01.09.02_SAA1.3.0-p5.zip;subdir=${BPN};name=bios-h14dsh"
+SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/29590/H14DSH_1.9_AS01.03.04.02_SAA1.4.0.zip;subdir=${BPN};name=bios-h14dsh"
 
 SRC_URI[bios-x10dru-iplus.sha256sum] = "d24b8f6b7f4ed186bbca662751b7d80ae6efd014d1ba71b47d9c4370eaa39fb4"
 SRC_URI[bmc-x10dru-iplus.sha256sum] = "80fcf01d2073cabe81118140a8494c8a65431dd5d20460c12272db110b5f8d21"
 SRC_URI[bios-x10drw-i.sha256sum] = "7379177cc6d30283c2b178d33f360d5522eb8e3a1badf9a6ab1cf837802dadeb"
 SRC_URI[bmc-x10drw-i.sha256sum] = "d07982d5f684e6458c80c069f762245ab38163620a31c2c9b60a7c2edc4c0f4e"
-SRC_URI[bios-x11dph-t.sha256sum] = "88878d2e35c1cf496e69c29871a82c5503de2375d17538c1002713fd9bb47842"
-SRC_URI[bios-x11spw-tf.sha256sum] = "f3153e72f8e412b1a71f793225fea7b591ccee89914eeae36d86bf5bf77d223a"
+SRC_URI[bios-x11dph-t.sha256sum] = "92eceb880a3c612d93214472a2835d6332f83aba401f4bbe7d7ae9bf07edac4a"
+SRC_URI[bios-x11spw-tf.sha256sum] = "631e93dece12e52a471802ebafdab1c5e5481a476168a1d23b77934b6f7658b3"
 SRC_URI[bios-up.sha256sum] = "3372cb69885ec75ac3a75b4079a9370a5e918ecc0853b37eb879f809c67149f0"
-SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "3f9680f202bce12890947aea4b57eecb807befd7af4f07024ddc69ce20f8f0cc"
+SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "bfdf5d99a167e5b09e4ffa64e54494e81d797026fb8b00d0770998b02b314c00"
 SRC_URI[bios-a3sev-4c-ln4.sha256sum] = "84fa244867232e6575344f49995c5f030f8c904306d980a96f0b04217ac46582"
-SRC_URI[bios-h14dsh.sha256sum] = "14417a9c12bb58d190eda321bcc8390cf76de2f17beb9c3e6af7471d9de80913"
-
+SRC_URI[bios-h14dsh.sha256sum] = "33b87a2d8718c193faac63bce984c18a8156830b1f32f44b4e4e8e715f8111fc"
 
 S = "${WORKDIR}/${BPN}"
 PACKAGES = "${BPN}"
