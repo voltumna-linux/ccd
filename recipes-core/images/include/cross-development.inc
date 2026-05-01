@@ -6,5 +6,5 @@ TOOLCHAIN_HOST_TASK:append = " nativesdk-pogo nativesdk-jive \
 	nativesdk-libfit-dev nativesdk-libbufferrt-dev \
 	nativesdk-libpylon-dev nativesdk-cpptango-dev \
 	nativesdk-net-snmp-dev nativesdk-python3-sinstruments \
-	nativesdk-lapack-dev nativesdk-hdf5-dev nativesdk-boogie \
-        nativesdk-boost-dev"
+	nativesdk-lapack-dev nativesdk-libximc-dev nativesdk-hdf5-dev \
+        nativesdk-boogie nativesdk-boost-dev"
