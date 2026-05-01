@@ -13,5 +13,5 @@ EFI_PROVIDER = ""
 WKS_FILE ?= "grub-bootdisk.wks"
 QEMU_EXTRAOPTIONS_zen5 = " -cpu EPYC"
 
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-yocto-epyc"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-amd"
 MACHINE_EXTRA_RRECOMMENDS:append = " kernel-modules linux-firmware"
