@@ -45,4 +45,3 @@ ADVANCED_ISA = " \
 -mno-avx512bitalg \
 -mno-avx512vpopcntdq \
 "
-

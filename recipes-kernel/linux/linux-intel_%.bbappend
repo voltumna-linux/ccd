@@ -1,5 +1,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI:append = " \
-        file://netfilter.cfg \
-        "
+	file://vtd-intel.cfg \
+	file://static_intel_drivers.cfg \
+    "
+
