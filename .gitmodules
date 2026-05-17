@@ -16,5 +16,5 @@
 	branch = master
 [submodule "meta-amd"]
 	path = meta-amd
-	url = https://git.yoctoproject.org/meta-amd
-	branch = scarthgap
+	url = https://github.com/voltumna-linux/meta-amd.git
+	branch = wrynose
