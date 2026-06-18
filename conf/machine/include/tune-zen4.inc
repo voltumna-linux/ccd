@@ -16,7 +16,7 @@ require conf/machine/include/tune-zen3.inc
 
 # Extra tune features
 TUNEVALID[zen4] = "Enable AMD x86 (64 bit) Zen 4 Core Architecture specific optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'zen4', ' -march=znver4 -mtune=znver4 ${ADDITIONAL_ISA}', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'zen4', ' -march=znver4 -mtune=znver4 ${ADDITIONAL_CCARGS}', '', d)}"
 TUNECONFLICTS[zen4] = "m32 mx32"
 
 # Extra tune selections
@@ -29,19 +29,5 @@ QEMU_EXTRAOPTIONS_zen4 = " -cpu EPYC,check=false"
 
 OPENBLAS_TARGET = "ZEN"
 
-ADDITIONAL_ISA = "${@bb.utils.contains('MACHINE_FEATURES', 'highly-optimized', '', ' ${ADVANCED_ISA}', d)}"
-ADVANCED_ISA = " \
--mno-avx \
--mno-avx2 \
--mno-avx512f \
--mno-avx512cd \
--mno-avx512dq \
--mno-avx512bw \
--mno-avx512vl \
--mno-avx512ifma \
--mno-avx512vbmi \
--mno-avx512vbmi2 \
--mno-avx512vnni \
--mno-avx512bitalg \
--mno-avx512vpopcntdq \
-"
+ADDITIONAL_CCARGS = "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', '${QEMU_UNAVAILABLE_ISA}', '', d)}"
+QEMU_UNAVAILABLE_ISA = "-mno-avx512f"
