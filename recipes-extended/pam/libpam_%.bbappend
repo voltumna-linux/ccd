@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/libpam:"
 
-SRC_URI += "file://dpdk.conf"
+SRC_URI:append = "file://dpdk.conf"
 
 do_install:append() {
 	install -d ${D}${sysconfdir}/security/limits.d/

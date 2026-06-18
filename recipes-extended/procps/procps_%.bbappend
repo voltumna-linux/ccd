@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/procps:"
 
-SRC_URI += "file://99-dpdk.conf"
+SRC_URI:append = "file://99-dpdk.conf"
 
 do_install:append() {
 	install -d ${D}${sysconfdir}/sysctl.d
