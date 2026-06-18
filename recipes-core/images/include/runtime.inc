@@ -1,9 +1,10 @@
 IMAGE_INSTALL:append = " hwloc dmidecode starter \
-	numactl openblas gsl itpp libfftw libfftwf libfftwl \
+	openblas gsl itpp libfftw libfftwf libfftwl \
 	python3-pytango libfit tcpdump users rsync screen netcat \
 	vlan lapack libpylon boost hdf5 python3-h5py cpupower libximc \
         turbostat rt-tests iputils-ping iputils-arping \
-        net-snmp-client net-snmp-mibs python3-netsnmp perf"
+        net-snmp-client net-snmp-mibs python3-netsnmp perf \
+        libgccjit muparserx libtcc"
 
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
