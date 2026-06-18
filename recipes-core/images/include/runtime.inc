@@ -1,5 +1,5 @@
 IMAGE_INSTALL:append = " hwloc dmidecode starter \
-	numactl openblas gsl itpp libfftw libfftwf libfftwl \
+	openblas gsl itpp libfftw libfftwf libfftwl \
 	python3-pytango libfit tcpdump users rsync screen netcat \
 	vlan lapack libpylon boost hdf5 python3-h5py cpupower libximc \
         turbostat rt-tests iputils-ping iputils-arping \
