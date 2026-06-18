@@ -14,7 +14,7 @@ require conf/machine/include/x86/tune-corei7.inc
 
 # Extra tune features
 TUNEVALID[skylake] = "Enable skylake specific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'skylake', ' -march=skylake -mtune=skylake ${ADDITIONAL_ISA}', '', d)}"
+TUNE_CCARGS .= "${@bb.utils.contains('TUNE_FEATURES', 'skylake', ' -march=skylake -mtune=skylake ${ADDITIONAL_CCARGS}', '', d)}"
 TUNECONFLICTS[skylake] = "m32 mx32"
 
 # Extra tune selections
@@ -27,20 +27,5 @@ QEMU_EXTRAOPTIONS_skylake-64 = " -cpu Skylake-Client,check=false"
 
 OPENBLAS_TARGET = "SKYLAKEX"
 
-ADDITIONAL_ISA = "${@bb.utils.contains('MACHINE_FEATURES', 'highly-optimized', '', ' ${ADVANCED_ISA}', d)}"
-ADVANCED_ISA = " \
--mno-avx \
--mno-avx2 \
--mno-avx512f \
--mno-avx512cd \
--mno-avx512dq \
--mno-avx512bw \
--mno-avx512vl \
--mno-avx512ifma \
--mno-avx512vbmi \
--mno-avx512vbmi2 \
--mno-avx512vnni \
--mno-avx512bitalg \
--mno-avx512vpopcntdq \
-"
-
+ADDITIONAL_CCARGS = "${@bb.utils.contains('MACHINE_FEATURES', 'qemu-usermode', '${QEMU_UNAVAILABLE_ISA}', '', d)}"
+QEMU_UNAVAILABLE_ISA = "-mno-avx512f"
