@@ -1,6 +1,6 @@
 IMAGE_INSTALL:append = " python3-pyelftools openblas-dev gsl-dev \
 	itpp-dev fftw-dev libfit-dev libpylon-dev cpptango-dev \
-	lapack-dev boost-dev hdf5 net-snmp-dev libximc-dev \
+	boost-dev hdf5 net-snmp-dev libximc-dev \
         libgccjit-dev muparserx-dev"
 
 IMAGE_INSTALL:append:rnm = " librnmshare-dev librnmdpdk-dev \
