@@ -7,7 +7,7 @@ TOOLCHAIN_HOST_TASK:append = " nativesdk-pogo nativesdk-jive \
 	nativesdk-libpylon-dev nativesdk-cpptango-dev \
 	nativesdk-net-snmp-dev nativesdk-python3-sinstruments \
 	nativesdk-a3818-dev nativesdk-caenvmelib-dev \
-	nativesdk-lapack-dev nativesdk-libandor2-dev \
+	nativesdk-libandor2-dev \
 	nativesdk-libpdv-dev nativesdk-boost-dev \
 	nativesdk-libtucam-dev nativesdk-libdcam-dev \
 	nativesdk-libximc-dev nativesdk-libandor3-dev \
