@@ -1,3 +1,5 @@
+require recipes-kernel/linux/linux-production.inc
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI:append:d-9755-h14dsh = " \
