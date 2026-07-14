@@ -12,6 +12,8 @@ IMAGE_INSTALL:append = " hwloc dmidecode starter \
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
         rnm-dpdk-watch dpdk dpdk-tools libbufferrt"
+IMAGE_INSTALL:append:myricom = " myricom-mva-module libemergent"
+
 IMAGE_INSTALL:append:rnm:intel-x86-common = " intel-cmt-cat intel-pcm"
 
 IMAGE_INSTALL:remove:kvm = " libpylon caenvmelib \

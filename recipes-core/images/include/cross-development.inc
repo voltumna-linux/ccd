@@ -13,3 +13,5 @@ TOOLCHAIN_HOST_TASK:append = " nativesdk-pogo nativesdk-jive \
 	nativesdk-libximc-dev nativesdk-libandor3-dev \
 	nativesdk-libbitflow-dev nativesdk-hdf5-dev \
         nativesdk-xclib-dev"
+
+TOOLCHAIN_HOST_TASK:append:myricom = " nativesdk-libemergent-dev"
