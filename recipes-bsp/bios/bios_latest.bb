@@ -17,7 +17,7 @@ SRC_URI:append:x10dru-iplus = " https://www.supermicro.com/Bios/softfiles/15575/
 		https://www.supermicro.com/Bios/softfiles/14879/BMC_X10AST2400-C001MS_20211001_03.94_STD.zip;subdir=${BPN};name=bmc-x10dru-iplus"
 SRC_URI:append:x10drw-i = " https://www.supermicro.com/Bios/softfiles/10581/X10DRW9_B22.zip;subdir=${BPN};name=bios-x10drw-i \
 		https://www.supermicro.com/Bios/softfiles/12112/REDFISH_X10_389_20200623_unsigned.zip;subdir=${BPN};name=bmc-x10drw-i"
-SRC_URI:append:x11dph-t = " https://www.supermicro.com/Bios/softfiles/28206/X11DPH-I,T,Tq_4.7_AS1.74.19_SUM2.14.0.zip;subdir=${BPN};name=bios-x11dph-t"
+SRC_URI:append:x11dph-t = " https://www.supermicro.com/Bios/softfiles/31431/X11DPH-I,T,Tq_4.7_AS1.74.21_SUM2.15.0.zip;subdir=${BPN};name=bios-x11dph-t"
 SRC_URI:append:x11spw-tf = " https://www.supermicro.com/Bios/softfiles/27650/X11SPW_4.7_AS01.74.19_SUM2.14.0.zip;subdir=${BPN};name=bios-x11spw-tf"
 SRC_URI:append:up-whl01 = " https://downloads.up-community.org/download/up-xtreme-uefi-bios-v2-1/?wpdmdl=1054&ind=ecKW0_nM8nrydmuNytAW1RIUmj5aOiUe2fxxPUAD9itQKU2UYBGqicZeXYUpURsg1Sc6X-KFZ9Lp0EaBBT_pk_kUXIZnksIh49fZWcaTUUIWKHwFJHfvhSvWPND8w6So;;downloadfilename=UPW1AM21.zip;name=bios-up \
 			file://BIOS_update_SOP.txt"
@@ -29,7 +29,7 @@ SRC_URI[bios-x10dru-iplus.sha256sum] = "d24b8f6b7f4ed186bbca662751b7d80ae6efd014
 SRC_URI[bmc-x10dru-iplus.sha256sum] = "80fcf01d2073cabe81118140a8494c8a65431dd5d20460c12272db110b5f8d21"
 SRC_URI[bios-x10drw-i.sha256sum] = "7379177cc6d30283c2b178d33f360d5522eb8e3a1badf9a6ab1cf837802dadeb"
 SRC_URI[bmc-x10drw-i.sha256sum] = "d07982d5f684e6458c80c069f762245ab38163620a31c2c9b60a7c2edc4c0f4e"
-SRC_URI[bios-x11dph-t.sha256sum] = "92eceb880a3c612d93214472a2835d6332f83aba401f4bbe7d7ae9bf07edac4a"
+SRC_URI[bios-x11dph-t.sha256sum] = "89073158b72746ef81abe052285ef409651b467981e2e30ae3563bb5acf622fc"
 SRC_URI[bios-x11spw-tf.sha256sum] = "631e93dece12e52a471802ebafdab1c5e5481a476168a1d23b77934b6f7658b3"
 SRC_URI[bios-up.sha256sum] = "3372cb69885ec75ac3a75b4079a9370a5e918ecc0853b37eb879f809c67149f0"
 SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "bfdf5d99a167e5b09e4ffa64e54494e81d797026fb8b00d0770998b02b314c00"
@@ -92,7 +92,7 @@ do_install:append:x10drw-i() {
 
 do_install:append:x11dph-t() {
 	install -d ${D}${datadir}/${BPN}
-	install -m 0444 ${S}/BMC/BMC*.bin ${S}/BIOS/BIOS*/BIOS*.bin \
+	install -m 0444 ${S}/BMC/BMC*/BMC*.bin ${S}/BIOS/BIOS*/BIOS*.bin \
 		${D}${datadir}/${BPN}
 }
 
