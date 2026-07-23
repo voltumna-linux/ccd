@@ -1,14 +1,39 @@
-MACHINE="s-d1718t-x12sdv-4c-sp6f"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+#!/usr/bin/env bash
 
-MACHINE="d-6346-06v45n-gof"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+set -euo pipefail
+trap 'printf "Errore alla riga %s\n" "$LINENO" >&2' ERR
 
-MACHINE="d-9755-h14dsh-fast"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+read -r -d '' DATI <<'EOF' || true
+s-d1718t-x12sdv-4c-sp6f image ccd-sde intranet tar
+s-d1718t-x12sdv-4c-sp6f image ccd-sre intranet tar
+s-d1718t-x12sdv-4c-sp6f sdk   ccd-sdk intranet sh
+d-6346-06v45n-gof       image ccd-sde intranet tar
+d-6346-06v45n-gof       image ccd-sre intranet tar
+d-6346-06v45n-gof       sdk   ccd-sdk intranet sh
+d-9755-h14dsh-fast      image ccd-sde intranet tar
+d-9755-h14dsh-fast      image ccd-sre intranet tar
+d-9755-h14dsh-fast      sdk   ccd-sdk intranet sh
+EOF
+
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    exec 3<<< "$DATI"
+
+    while read -r -u 3 machine type image outputdir format; do
+        export MACHINE="$machine"
+
+        case "$type" in
+            image)
+                nice bitbake -k "$image"
+                ;;
+            sdk)
+                nice bitbake -k "$image" -c populate_sdk
+                ;;
+            *)
+                printf 'Tipo non riconosciuto: %s\n' "$type" >&2
+                exit 1
+                ;;
+        esac
+    done
+
+    exec 3<&-
+fi
