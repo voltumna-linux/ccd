@@ -1,79 +1,49 @@
-clean() {
-	unset IMAGES
-}
-trap clean EXIT
+#!/usr/bin/env bash
 
-DEPLOYDIR=tmp/deploy
+set -euo pipefail
+trap 'echo "Errore alla riga $LINENO"' ERR
 
-declare -A IMAGES
-IMAGES[s-4125r-x11spw-tf-myricom]="ccd-sde intranet os.tar net.tar
-			       ccd-sre intranet os.tar net.tar
-			       ccd-sdk intranet sh"
-IMAGES[d-6244-x11dph-t-rnm]="ccd-sde intranet os.tar net.tar
-			     ccd-sre intranet os.tar net.tar
-                             ccd-sdk intranet sh"
-IMAGES[s-4125r-x11spw-tf-rnm]="ccd-sde intranet os.tar net.tar
-			       ccd-sre intranet os.tar net.tar
-			       ccd-sdk intranet sh"
-IMAGES[d-6346-06v45n-gof]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
-IMAGES[d-e5462-x7dwu-rnm]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
-IMAGES[d-e5472-x7dwu-rnm]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
-IMAGES[d-e52637v3-x10drw-i-rnm]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
-IMAGES[d-e52637v4-x10dru-iplus-rnm]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
-IMAGES[d-e52643v4-x10dru-iplus-rnm]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
-IMAGES[s-x6425e-a3sev-4c-ln4-rnm]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
-IMAGES[s-d1718t-x12sdv-4c-sp6f-rnm]="ccd-sde intranet os.tar net.tar
-			   ccd-sre intranet os.tar net.tar
-                           ccd-sdk intranet sh"
+TAR="tar --owner=0 --group=0 --numeric-owner"
 
-for MACHINE in ${!IMAGES[@]}
-do
-	echo "${IMAGES[$MACHINE]}" | while read -r -a DATA
-	do
-		FILENAME=$(basename $DEPLOYDIR/images/$MACHINE/${DATA[0]}-$MACHINE-*.manifest)
-		for EXT in ${DATA[@]:2}
-		do
-			case $EXT in
-				os.tar|net.tar)
-					cp $DEPLOYDIR/images/$MACHINE/$FILENAME $1/${DATA[1]}/
-					FILENAME2=$(basename $DEPLOYDIR/images/$MACHINE/${DATA[0]}-$MACHINE-*.$EXT)
-					xz -cT0 $DEPLOYDIR/images/$MACHINE/$FILENAME2 > $1/${DATA[1]}/$FILENAME2.xz
-					;;
-				wic)
-					cp $DEPLOYDIR/images/$MACHINE/$FILENAME $1/${DATA[1]}/
-					FILENAME2=$(basename -s .$EXT $DEPLOYDIR/images/$MACHINE/${DATA[0]}-$MACHINE-*.$EXT)
-					xz -cT0 $DEPLOYDIR/images/$MACHINE/$FILENAME2.$EXT > $1/${DATA[1]}/$FILENAME2.img.xz
-					;;
-				wic.bmap)
-					cp $DEPLOYDIR/images/$MACHINE/$FILENAME $1/${DATA[1]}/
-					FILENAME2=$(basename -s .$EXT $DEPLOYDIR/images/$MACHINE/${DATA[0]}-$MACHINE-*.$EXT)
-					cp $DEPLOYDIR/images/$MACHINE/$FILENAME2.$EXT $1/${DATA[1]}/$FILENAME2.img.bmap
-					;;
-				wic.vmdk)
-					cp $DEPLOYDIR/images/$MACHINE/$FILENAME $1/${DATA[1]}/
-					FILENAME2=$(basename -s .$EXT $DEPLOYDIR/images/$MACHINE/${DATA[0]}-$MACHINE-*.$EXT)
-					xz -cT0 $DEPLOYDIR/images/$MACHINE/$FILENAME2.$EXT > $1/${DATA[1]}/$FILENAME2.img.vmdk.xz
-					;;
-				sh|zip)
-					cp $DEPLOYDIR/sdk/${DATA[0]}-*-$MACHINE-*.$EXT $1/${DATA[1]}/
-					;;
-			esac
-		done
-	done
+. ../bake
+
+exec 3<<< "$DATI"
+
+while read -r -u 3 machine type image outputdir format; do
+    DDIR="tmp/deploy/images/${machine}"
+    BDIR="tmp/work/"${machine//-/_}"*/${image}/1.0/rootfs"
+    IMAGE_NAME="$(basename $BDIR/.osdir/${image}*)"
+    TMPDIR=$(mktemp -d) || exit 1
+    trap 'rm -rf -- "$TMPDIR"' EXIT
+    case "$type" in
+        "image")
+	    if [ -f ${DDIR}/grub-efi-bootx64.efi ]; then
+	        mkdir -p ${TMPDIR}/tftpboot/EFI/BOOT
+	        install -m 644 ${DDIR}/grub-efi-bootx64.efi ${TMPDIR}/tftpboot/EFI/BOOT/bootx64.efi
+	        install -m 644 ${DDIR}/grub-${image}*.cfg ${TMPDIR}/tftpboot/EFI/BOOT/grub.cfg
+	        sed -i -e "s,default=localboot,default=netboot,g" ${TMPDIR}/tftpboot/EFI/BOOT/grub.cfg
+	    fi
+	    if [ -f ${DDIR}/grub-bootx86.pxe ]; then
+	        mkdir -p ${TMPDIR}/tftpboot/BOOT
+	        install -m 644 ${DDIR}/grub-bootx86.pxe ${WORKDIR}/tftpboot/BOOT/bootx86.pxe
+	        install -m 644 ${DDIR}/grub-${image}*.cfg ${WORKDIR}/tftpboot/BOOT/grub.cfg
+	        sed -i -e "s,default=localboot,default=netboot,g" ${TMPDIR}/tftpboot/BOOT/grub.cfg
+	    fi
+
+	    ${TAR} -cf ${1}/${IMAGE_NAME}.net.tar -C ${BDIR}/.. --exclude='.osdir*' --transform 's;^rootfs;nfsroot;' rootfs
+	    ${TAR} -rf ${1}/${IMAGE_NAME}.net.tar -C ${TMPDIR}/ tftpboot
+	    xz -T0 ${1}/${IMAGE_NAME}.net.tar
+	    ${TAR} -cf ${1}/${IMAGE_NAME}.os.tar  -C ${BDIR}/.osdir/ ${IMAGE_NAME}
+	    xz -T0 ${1}/${IMAGE_NAME}.os.tar
+	    ;;
+        "sdk")
+	    cp tmp/deploy/sdk/${image}-x86_64-${machine}-*.sh ${1}
+	    ;;
+        *)
+	    printf 'Tipo non riconosciuto: %s\n' "$type" >&2
+	    ;;
+    esac
+    rm -fr -- $TMPDIR
 done
 
-unset IMAGES
+exec 3<&-

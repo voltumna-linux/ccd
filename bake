@@ -1,54 +1,63 @@
-MACHINE="s-4125r-x11spw-tf-myricom"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+#!/usr/bin/env bash
 
-MACHINE="d-6244-x11dph-t-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+set -euo pipefail
+trap 'printf "Errore alla riga %s\n" "$LINENO" >&2' ERR
 
-MACHINE="s-4125r-x11spw-tf-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+read -r -d '' DATI <<'EOF' || true
+s-4125r-x11spw-tf-myricom image ccd-sde intranet tar
+s-4125r-x11spw-tf-myricom image ccd-sre intranet tar
+s-4125r-x11spw-tf-myricom sdk ccd-sdk intranet tar
+d-6244-x11dph-t-rnm image ccd-sde intranet tar
+d-6244-x11dph-t-rnm image ccd-sre intranet tar
+d-6244-x11dph-t-rnm sdk   ccd-sdk intranet sh
+s-4125r-x11spw-tf-rnm image ccd-sde intranet tar
+s-4125r-x11spw-tf-rnm image ccd-sre intranet tar
+s-4125r-x11spw-tf-rnm sdk   ccd-sdk intranet sh
+d-6346-06v45n-gof image ccd-sde intranet tar
+d-6346-06v45n-gof image ccd-sre intranet tar
+d-6346-06v45n-gof sdk   ccd-sdk intranet sh
+d-e5462-x7dwu-rnm image ccd-sde intranet tar
+d-e5462-x7dwu-rnm image ccd-sre intranet tar
+d-e5462-x7dwu-rnm sdk   ccd-sdk intranet sh
+d-e5472-x7dwu-rnm image ccd-sde intranet tar
+d-e5472-x7dwu-rnm image ccd-sre intranet tar
+d-e5472-x7dwu-rnm sdk   ccd-sdk intranet sh
+d-e52637v3-x10drw-i-rnm image ccd-sde intranet tar
+d-e52637v3-x10drw-i-rnm image ccd-sre intranet tar
+d-e52637v3-x10drw-i-rnm sdk   ccd-sdk intranet sh
+d-e52637v4-x10dru-iplus-rnm image ccd-sde intranet tar
+d-e52637v4-x10dru-iplus-rnm image ccd-sre intranet tar
+d-e52637v4-x10dru-iplus-rnm sdk   ccd-sdk intranet sh
+d-e52643v4-x10dru-iplus-rnm image ccd-sde intranet tar
+d-e52643v4-x10dru-iplus-rnm image ccd-sre intranet tar
+d-e52643v4-x10dru-iplus-rnm sdk   ccd-sdk intranet sh
+s-x6425e-a3sev-4c-ln4-rnm image ccd-sde intranet tar
+s-x6425e-a3sev-4c-ln4-rnm image ccd-sre intranet tar
+s-x6425e-a3sev-4c-ln4-rnm sdk   ccd-sdk intranet sh
+s-d1718t-x12sdv-4c-sp6f-rnm image ccd-sde intranet tar
+s-d1718t-x12sdv-4c-sp6f-rnm image ccd-sre intranet tar
+s-d1718t-x12sdv-4c-sp6f-rnm sdk   ccd-sdk intranet sh
+EOF
 
-MACHINE="d-6346-06v45n-gof"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    exec 3<<< "$DATI"
 
-MACHINE="d-e5462-x7dwu-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+    while read -r -u 3 machine type image outputdir format; do
+        export MACHINE="$machine"
 
-MACHINE="d-e5472-x7dwu-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+        case "$type" in
+            image)
+                nice bitbake -k "$image"
+                ;;
+            sdk)
+                nice bitbake -k "$image" -c populate_sdk
+                ;;
+            *)
+                printf 'Tipo non riconosciuto: %s\n' "$type" >&2
+                exit 1
+                ;;
+        esac
+    done
 
-MACHINE="d-e52637v3-x10drw-i-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-e52637v4-x10dru-iplus-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="d-e52643v4-x10dru-iplus-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="s-x6425e-a3sev-4c-ln4-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
-
-MACHINE="s-d1718t-x12sdv-4c-sp6f-rnm"
-nice bitbake -k ccd-sre ccd-sde || return
-SDKMACHINE="x86_64"
-nice bitbake -k ccd-sdk -c populate_sdk || return
+    exec 3<&-
+fi
