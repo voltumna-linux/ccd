@@ -23,13 +23,12 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
 
         case "$type" in
             image)
-                nice bitbake -k "$image"
+                nice bitbake -k "$image" -c rootfs
                 ;;
             sdk)
-                nice bitbake -k "$image" -c populate_sdk
                 ;;
             *)
-                printf 'Tipo non riconosciuto: %s\n' "$type" >&2
+                printf 'Type unknown: %s\n' "$type" >&2
                 exit 1
                 ;;
         esac
