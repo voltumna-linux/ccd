@@ -4,7 +4,7 @@ IMAGE_INSTALL:append = " hwloc dmidecode starter \
 	vlan libpylon boost hdf5 python3-h5py cpupower libximc \
         turbostat rt-tests iputils-ping iputils-arping \
         net-snmp-client net-snmp-mibs python3-netsnmp perf \
-        libgccjit muparserx libtcc"
+        libgccjit muparserx libtcc python3-scipy"
 
 IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
