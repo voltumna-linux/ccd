@@ -6,7 +6,7 @@ trap 'printf "Errore alla riga %s\n" "$LINENO" >&2' ERR
 read -r -d '' DATI <<'EOF' || true
 s-4125r-x11spw-tf-myricom image ccd-sde intranet tar
 s-4125r-x11spw-tf-myricom image ccd-sre intranet tar
-s-4125r-x11spw-tf-myricom sdk ccd-sdk intranet tar
+s-4125r-x11spw-tf-myricom sdk ccd-sdk intranet sh
 d-6244-x11dph-t-rnm image ccd-sde intranet tar
 d-6244-x11dph-t-rnm image ccd-sre intranet tar
 d-6244-x11dph-t-rnm sdk   ccd-sdk intranet sh
@@ -47,13 +47,12 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
 
         case "$type" in
             image)
-                nice bitbake -k "$image"
+                nice bitbake -k "$image" -c rootfs
                 ;;
             sdk)
-                nice bitbake -k "$image" -c populate_sdk
                 ;;
             *)
-                printf 'Tipo non riconosciuto: %s\n' "$type" >&2
+                printf 'Type unknown: %s\n' "$type" >&2
                 exit 1
                 ;;
         esac
