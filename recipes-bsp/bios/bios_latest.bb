@@ -98,7 +98,7 @@ do_install:append:x11dph-t() {
 
 do_install:append:x11spw-tf() {
 	install -d ${D}${datadir}/${BPN}
-	install -m 0444 ${S}/BMC/BMC*.bin ${S}/BIOS/BIOS*.bin \
+	install -m 0444 ${S}/BMC/BMC*/BMC*.bin ${S}/BIOS/BIOS*.bin \
 		${D}${datadir}/${BPN}
 }
 
