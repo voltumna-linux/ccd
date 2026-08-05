@@ -7,6 +7,9 @@ read -r -d '' DATI <<'EOF' || true
 s-d1718t-x12sdv-4c-sp6f image ccd-sde intranet tar
 s-d1718t-x12sdv-4c-sp6f image ccd-sre intranet tar
 s-d1718t-x12sdv-4c-sp6f sdk   ccd-sdk intranet sh
+d-6244-x11dph-t         image ccd-sde intranet tar
+d-6244-x11dph-t         image ccd-sre intranet tar
+d-6244-x11dph-t         sdk   ccd-sdk intranet sh
 d-6346-06v45n-gof       image ccd-sde intranet tar
 d-6346-06v45n-gof       image ccd-sre intranet tar
 d-6346-06v45n-gof       sdk   ccd-sdk intranet sh
