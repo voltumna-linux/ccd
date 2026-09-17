@@ -16,5 +16,5 @@
 	branch = wrynose
 [submodule "meta-amd"]
 	path = meta-amd
-	url = https://github.com/voltumna-linux/meta-amd.git
+	url = https://git.yoctoproject.org/meta-amd.git
 	branch = wrynose
