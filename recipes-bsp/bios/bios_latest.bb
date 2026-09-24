@@ -17,11 +17,11 @@ SRC_URI:append:x10dru-iplus = " https://www.supermicro.com/Bios/softfiles/15575/
 		https://www.supermicro.com/Bios/softfiles/14879/BMC_X10AST2400-C001MS_20211001_03.94_STD.zip;subdir=${BPN};name=bmc-x10dru-iplus"
 SRC_URI:append:x10drw-i = " https://www.supermicro.com/Bios/softfiles/10581/X10DRW9_B22.zip;subdir=${BPN};name=bios-x10drw-i \
 		https://www.supermicro.com/Bios/softfiles/12112/REDFISH_X10_389_20200623_unsigned.zip;subdir=${BPN};name=bmc-x10drw-i"
-SRC_URI:append:x11dph-t = " https://www.supermicro.com/Bios/softfiles/31431/X11DPH-I,T,Tq_4.7_AS1.74.21_SUM2.15.0.zip;subdir=${BPN};name=bios-x11dph-t"
+SRC_URI:append:x11dph-t = " https://www.supermicro.com/Bios/softfiles/32281/X11DPH-I,T,Tq_4.7_AS1.74.25_SUM2.15.0.zip;subdir=${BPN};name=bios-x11dph-t"
 SRC_URI:append:x11spw-tf = " https://www.supermicro.com/Bios/softfiles/31479/X11SPW_4.7_AS01.74.22_SUM2.14.0.zip;subdir=${BPN};name=bios-x11spw-tf"
 SRC_URI:append:up-whl01 = " https://downloads.up-community.org/download/up-xtreme-uefi-bios-v2-1/?wpdmdl=1054&ind=ecKW0_nM8nrydmuNytAW1RIUmj5aOiUe2fxxPUAD9itQKU2UYBGqicZeXYUpURsg1Sc6X-KFZ9Lp0EaBBT_pk_kUXIZnksIh49fZWcaTUUIWKHwFJHfvhSvWPND8w6So;;downloadfilename=UPW1AM21.zip;name=bios-up \
 			file://BIOS_update_SOP.txt"
-SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/29835/X12SDV-xC-SP6F_2.2_AS01.06.08_SAA1.4.0.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
+SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/30600/X12SDV-xC-SP6F_2.2a_AS01.06.08_SAA1.5.0-p4.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
 SRC_URI:append:a3sev-4c-ln4 = " https://www.supermicro.com/Bios/softfiles/25796/BIOS_A3SEV-1C2A_20250521_2.1_STDsp.zip;subdir=${BPN};name=bios-a3sev-4c-ln4"
 SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/31898/H14DSH_1.9_AS01.07.05.03_SAA1.5.0-p2.zip;subdir=${BPN};name=bios-h14dsh"
 
@@ -29,10 +29,10 @@ SRC_URI[bios-x10dru-iplus.sha256sum] = "d24b8f6b7f4ed186bbca662751b7d80ae6efd014
 SRC_URI[bmc-x10dru-iplus.sha256sum] = "80fcf01d2073cabe81118140a8494c8a65431dd5d20460c12272db110b5f8d21"
 SRC_URI[bios-x10drw-i.sha256sum] = "7379177cc6d30283c2b178d33f360d5522eb8e3a1badf9a6ab1cf837802dadeb"
 SRC_URI[bmc-x10drw-i.sha256sum] = "d07982d5f684e6458c80c069f762245ab38163620a31c2c9b60a7c2edc4c0f4e"
-SRC_URI[bios-x11dph-t.sha256sum] = "89073158b72746ef81abe052285ef409651b467981e2e30ae3563bb5acf622fc"
+SRC_URI[bios-x11dph-t.sha256sum] = "4f5a15479bd309b7563a9f9bef7c420cd163aa225d46a5a25a602ecc6a808c47"
 SRC_URI[bios-x11spw-tf.sha256sum] = "03693e9d26314b41c689134bdbb2b16cc2546b9e9f34d03fdcb0eac55e313faf"
 SRC_URI[bios-up.sha256sum] = "3372cb69885ec75ac3a75b4079a9370a5e918ecc0853b37eb879f809c67149f0"
-SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "bfdf5d99a167e5b09e4ffa64e54494e81d797026fb8b00d0770998b02b314c00"
+SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "14966c60ad558372c61f44bd3684887b379978815fb0561858e49ef3f6452568"
 SRC_URI[bios-a3sev-4c-ln4.sha256sum] = "84fa244867232e6575344f49995c5f030f8c904306d980a96f0b04217ac46582"
 SRC_URI[bios-h14dsh.sha256sum] = "dce23a6dfe5582f87e0102188c9f20fb3212f743bee1a67e8d109e98617532b5"
 
