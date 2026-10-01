@@ -9,4 +9,4 @@ Type=oneshot
 ExecStart=force-irq-affinity
 
 [Install]
-WantedBy=basic.target
+WantedBy=multi-user.target
