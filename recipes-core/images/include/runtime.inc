@@ -16,9 +16,3 @@ IMAGE_INSTALL:append:myricom = " myricom-mva-module libemergent"
 
 IMAGE_INSTALL:append:rnm:intel-x86-common = " intel-cmt-cat intel-pcm"
 
-IMAGE_INSTALL:remove:kvm = " libpylon caenvmelib \
-	kernel-module-a3818 a3818 libandor2 kernel-module-edt \
-	libpdv edt-utils libtucam firebird-modules libdcam \
-	libximc libandor3 kernel-module-bitflow libbitflow \
-        kernel-module-pixci pixci-utils xclib"
-
