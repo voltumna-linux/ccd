@@ -18,6 +18,9 @@ SRC_URI:append = " \
 	file://static_intel_drivers.cfg \
         "
 
+# static_intel_drivers.cfg is NOT a copy-paste: AMD boards (e.g. H14DSH)
+# have Intel NICs and must use the statically linked drivers.
+
 SRC_URI:append:d-9755-h14dsh = " \
         file://nr-cpus-512.cfg \
         "
