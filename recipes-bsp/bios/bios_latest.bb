@@ -24,6 +24,7 @@ INSANE_SKIP:${PN} += "already-stripped ldflags file-rdeps debug-files"
 do_extract_bundled() {
 	unzip ${S}/BIOS*.zip -d ${S}/BIOS
 	unzip ${S}/BMC*.zip -d ${S}/BMC
+	chmod -R u+w ${S}/BIOS ${S}/BMC
 }
 
 python do_unpack:append:x11dph-t() {
