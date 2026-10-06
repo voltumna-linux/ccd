@@ -4,18 +4,21 @@ set -euo pipefail
 trap 'printf "Error at line %s\n" "$LINENO" >&2' ERR
 
 read -r -d '' DATI <<'EOF' || true
-s-d1718t-x12sdv-4c-sp6f image ccd-sde intranet tar
-s-d1718t-x12sdv-4c-sp6f image ccd-sre intranet tar
-s-d1718t-x12sdv-4c-sp6f sdk   ccd-sdk intranet sh
-d-6244-x11dph-t         image ccd-sde intranet tar
-d-6244-x11dph-t         image ccd-sre intranet tar
-d-6244-x11dph-t         sdk   ccd-sdk intranet sh
-d-6346-06v45n-gof       image ccd-sde intranet tar
-d-6346-06v45n-gof       image ccd-sre intranet tar
-d-6346-06v45n-gof       sdk   ccd-sdk intranet sh
-d-9755-h14dsh-fast      image ccd-sde intranet tar
-d-9755-h14dsh-fast      image ccd-sre intranet tar
-d-9755-h14dsh-fast      sdk   ccd-sdk intranet sh
+s-d1718t-x12sdv-4c-sp6f-fast image ccd-sde intranet tar
+s-d1718t-x12sdv-4c-sp6f-fast image ccd-sre intranet tar
+s-d1718t-x12sdv-4c-sp6f-fast sdk   ccd-sdk intranet sh
+d-6244-x11dph-t-fast         image ccd-sde intranet tar
+d-6244-x11dph-t-fast         image ccd-sre intranet tar
+d-6244-x11dph-t-fast         sdk   ccd-sdk intranet sh
+d-6346-06v45n-fast           image ccd-sde intranet tar
+d-6346-06v45n-fast           image ccd-sre intranet tar
+d-6346-06v45n-fast           sdk   ccd-sdk intranet sh
+d-9755-h14dsh-fast           image ccd-sde intranet tar
+d-9755-h14dsh-fast           image ccd-sre intranet tar
+d-9755-h14dsh-fast           sdk   ccd-sdk intranet sh
+d-6346-06v45n-gof            image ccd-sde intranet tar
+d-6346-06v45n-gof            image ccd-sre intranet tar
+d-6346-06v45n-gof            sdk   ccd-sdk intranet sh
 EOF
 
 build_all() {
