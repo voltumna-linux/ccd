@@ -23,7 +23,7 @@ SRC_URI:append:up-whl01 = " https://downloads.up-community.org/download/up-xtrem
 			file://BIOS_update_SOP.txt"
 SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/30600/X12SDV-xC-SP6F_2.2a_AS01.06.08_SAA1.5.0-p4.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
 SRC_URI:append:a3sev-4c-ln4 = " https://www.supermicro.com/Bios/softfiles/25796/BIOS_A3SEV-1C2A_20250521_2.1_STDsp.zip;subdir=${BPN};name=bios-a3sev-4c-ln4"
-SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/31898/H14DSH_1.9_AS01.07.05.03_SAA1.5.0-p2.zip;subdir=${BPN};name=bios-h14dsh"
+SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/32448/H14DSH_1.9_AS01.07.05.04_SAA1.6.0-p7.zip;subdir=${BPN};name=bios-h14dsh"
 
 SRC_URI[bios-x10dru-iplus.sha256sum] = "d24b8f6b7f4ed186bbca662751b7d80ae6efd014d1ba71b47d9c4370eaa39fb4"
 SRC_URI[bmc-x10dru-iplus.sha256sum] = "80fcf01d2073cabe81118140a8494c8a65431dd5d20460c12272db110b5f8d21"
@@ -34,7 +34,7 @@ SRC_URI[bios-x11spw-tf.sha256sum] = "196a1cbbe86f531dbdd25d3e2b65b92abde7cab66de
 SRC_URI[bios-up.sha256sum] = "3372cb69885ec75ac3a75b4079a9370a5e918ecc0853b37eb879f809c67149f0"
 SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "14966c60ad558372c61f44bd3684887b379978815fb0561858e49ef3f6452568"
 SRC_URI[bios-a3sev-4c-ln4.sha256sum] = "84fa244867232e6575344f49995c5f030f8c904306d980a96f0b04217ac46582"
-SRC_URI[bios-h14dsh.sha256sum] = "dce23a6dfe5582f87e0102188c9f20fb3212f743bee1a67e8d109e98617532b5"
+SRC_URI[bios-h14dsh.sha256sum] = "73429f06aad80e546599b02f6a41d3a1b44d6bef3242ae172c150f8aee253a46"
 
 S = "${WORKDIR}/${BPN}"
 PACKAGES = "${BPN}"
