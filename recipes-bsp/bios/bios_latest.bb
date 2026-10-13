@@ -11,11 +11,11 @@ RDEPENDS:${PN}:append:h14dsh = " saa"
 SRC_URI = " file://bios_configuration.bin"
 SRC_URI:append:x11dph-t = " https://www.supermicro.com/Bios/softfiles/32281/X11DPH-I,T,Tq_4.7_AS1.74.25_SUM2.15.0.zip;subdir=${BPN};name=bios-x11dph-t"
 SRC_URI:append:x12sdv-4c-sp6f = " https://www.supermicro.com/Bios/softfiles/30600/X12SDV-xC-SP6F_2.2a_AS01.06.08_SAA1.5.0-p4.zip;subdir=${BPN};name=bios-x12sdv-4c-sp6f"
-SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/31898/H14DSH_1.9_AS01.07.05.03_SAA1.5.0-p2.zip;subdir=${BPN};name=bios-h14dsh"
+SRC_URI:append:h14dsh = " https://www.supermicro.com/Bios/softfiles/32448/H14DSH_1.9_AS01.07.05.04_SAA1.6.0-p7.zip;subdir=${BPN};name=bios-h14dsh"
 
 SRC_URI[bios-x11dph-t.sha256sum] = "4f5a15479bd309b7563a9f9bef7c420cd163aa225d46a5a25a602ecc6a808c47"
 SRC_URI[bios-x12sdv-4c-sp6f.sha256sum] = "14966c60ad558372c61f44bd3684887b379978815fb0561858e49ef3f6452568"
-SRC_URI[bios-h14dsh.sha256sum] = "dce23a6dfe5582f87e0102188c9f20fb3212f743bee1a67e8d109e98617532b5"
+SRC_URI[bios-h14dsh.sha256sum] = "73429f06aad80e546599b02f6a41d3a1b44d6bef3242ae172c150f8aee253a46"
 
 S = "${UNPACKDIR}/${BPN}"
 PACKAGES = "${BPN}"
