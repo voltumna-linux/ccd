@@ -13,9 +13,6 @@ d-6244-x11dph-t-rnm sdk   ccd-sdk intranet sh
 s-4125r-x11spw-tf-rnm image ccd-sde intranet tar
 s-4125r-x11spw-tf-rnm image ccd-sre intranet tar
 s-4125r-x11spw-tf-rnm sdk   ccd-sdk intranet sh
-d-6346-06v45n-gof image ccd-sde intranet tar
-d-6346-06v45n-gof image ccd-sre intranet tar
-d-6346-06v45n-gof sdk   ccd-sdk intranet sh
 d-e5462-x7dwu-rnm image ccd-sde intranet tar
 d-e5462-x7dwu-rnm image ccd-sre intranet tar
 d-e5462-x7dwu-rnm sdk   ccd-sdk intranet sh
