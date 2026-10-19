@@ -16,9 +16,6 @@ d-6346-06v45n           sdk   ccd-sdk intranet sh
 d-9755-h14dsh           image ccd-sde intranet tar
 d-9755-h14dsh           image ccd-sre intranet tar
 d-9755-h14dsh           sdk   ccd-sdk intranet sh
-d-6346-06v45n-gof       image ccd-sde intranet tar
-d-6346-06v45n-gof       image ccd-sre intranet tar
-d-6346-06v45n-gof       sdk   ccd-sdk intranet sh
 EOF
 
 build_all() {
