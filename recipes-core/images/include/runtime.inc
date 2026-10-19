@@ -9,7 +9,6 @@ IMAGE_INSTALL:append = " hwloc dmidecode starter \
         turbostat rt-tests iputils-ping iputils-arping \
         net-snmp-client net-snmp-mibs python3-netsnmp perf"
 
-IMAGE_INSTALL:append:fast = " dpdk dpdk-tools"
 IMAGE_INSTALL:append:rnm = " rnm-dpdk librnmshare librnmdpdk \
         rnm-dpdk-watch dpdk dpdk-tools libbufferrt"
 IMAGE_INSTALL:append:myricom = " myricom-mva-module libemergent"
