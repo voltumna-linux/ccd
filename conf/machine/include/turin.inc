@@ -14,4 +14,4 @@ WKS_FILE ?= "grub-bootdisk.wks"
 QEMU_EXTRAOPTIONS_zen5 = " -cpu EPYC"
 
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-yocto-epyc"
-MACHINE_EXTRA_RRECOMMENDS:append = " kernel-modules linux-firmware"
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS:append = " kernel-modules linux-firmware"
