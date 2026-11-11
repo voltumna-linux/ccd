@@ -4,4 +4,4 @@ IMAGE_INSTALL:append = " os-install hwloc dmidecode starter \
 	vlan libpylon boost hdf5 python3-h5py cpupower libximc \
         turbostat rt-tests iputils-ping iputils-arping \
         net-snmp-client net-snmp-mibs python3-netsnmp perf \
-        python3-scipy cpunoise"
+        python3-scipy"
