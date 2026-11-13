@@ -1,6 +1,6 @@
 IMAGE_INSTALL:append = " hwloc dmidecode starter \
 	numactl openblas gsl itpp libfftw libfftwf libfftwl \
-	python3-pytango libfit tcpdump users rsync screen netcat \
+	python3-pytango libfit tcpdump rsync screen netcat \
 	vlan libpylon caenvmelib kernel-module-a3818 a3818 \
 	libandor2 kernel-module-edt libpdv edt-utils \
 	libtucam firebird-modules libdcam libximc libandor3 \
