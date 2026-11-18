@@ -1,6 +1,4 @@
-ELETTRA_ACCOUNTS = " \
-    lorenzo.pivetta \
-    alessio.bogani \
+ELETTRA_ACCOUNTS:append = " \
     giulio.gaio \
     graziano.scalamera \
     claudio.scafuri \
@@ -9,10 +7,4 @@ ELETTRA_ACCOUNTS = " \
     adriano.contillo \
     igor.trovarelli \
     maurizio.bossi \
-    "
-
-ELETTRA_SUDO_ACCOUNTS = " \
-    lorenzo.pivetta \
-    alessio.bogani \
-    giulio.gaio \
     "
